@@ -1,7 +1,7 @@
 import React from 'react';
+import gsap from 'gsap';
 import { inject, observer } from 'mobx-react';
 import MenuStore from '#stores/MenuStore';
-import gsap from 'gsap';
 import classNames from '#utils/classNames';
 
 import styles from './Menu.module.scss';
@@ -14,12 +14,23 @@ export interface MenuProps extends React.ButtonHTMLAttributes<HTMLButtonElement>
 @observer
 class Menu extends React.Component<MenuProps> {
   timeline1 = gsap.timeline();
+
   timeline2 = gsap.timeline();
+
   timeline3 = gsap.timeline();
 
   menuSpan1Ref = React.createRef<HTMLSpanElement>();
+
   menuSpan2Ref = React.createRef<HTMLSpanElement>();
+
   menuSpan3Ref = React.createRef<HTMLSpanElement>();
+
+  componentDidUpdate() {
+    const { menuStore } = this.props;
+    const { isMenuOpen } = menuStore ?? {};
+
+    this.handleMenuAnimation(Boolean(isMenuOpen));
+  }
 
   handleMenuAnimation(isMenuOpen: boolean) {
     if (isMenuOpen) {
@@ -75,21 +86,15 @@ class Menu extends React.Component<MenuProps> {
     }
   }
 
-  componentDidUpdate() {
-    const { menuStore } = this.props;
-    const { isMenuOpen } = menuStore ?? {};
-
-    this.handleMenuAnimation(Boolean(isMenuOpen));
-  }
-
   render() {
     const { menuStore, ...props } = this.props;
     const { isMenuOpen, handleToggleMenu } = menuStore ?? {};
 
     return (
       <button
+        type="button"
         onClick={handleToggleMenu}
-        className={classNames(styles['menu'], isMenuOpen && styles['active'])}
+        className={classNames(styles.menu, isMenuOpen && styles.active)}
         {...props}
       >
         <span ref={this.menuSpan1Ref} />

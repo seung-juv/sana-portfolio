@@ -54,36 +54,11 @@
     "@typescript-eslint/no-empty-function": 0,
     "@typescript-eslint/no-empty-interface": 0,
     "no-console": 0,
-    "no-alert": 0
+    "no-alert": 0,
+    "react/prefer-stateless-function": 0
   },
   "settings": {
     "import/resolver": {
-      "babel-plugin-root-import": [
-        {
-          "rootPathSuffix": "./src/apis",
-          "rootPathPrefix": "#apis/*"
-        },
-        {
-          "rootPathSuffix": "./src/commons",
-          "rootPathPrefix": "#commons/*"
-        },
-        {
-          "rootPathSuffix": "./src/components",
-          "rootPathPrefix": "#components/*"
-        },
-        {
-          "rootPathSuffix": "./src/pages",
-          "rootPathPrefix": "#pages/*"
-        },
-        {
-          "rootPathSuffix": "./src/styles",
-          "rootPathPrefix": "#styles/*"
-        },
-        {
-          "rootPathSuffix": "./src/utils",
-          "rootPathPrefix": "#utils/*"
-        }
-      ],
       "node": {
         "extensions": [
           ".js",

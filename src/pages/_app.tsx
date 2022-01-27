@@ -1,3 +1,4 @@
+import React from 'react';
 import App from 'next/app';
 import Head from 'next/head';
 import { Provider } from 'mobx-react';
@@ -17,13 +18,14 @@ export default class MyApp extends App<{}, State> {
   state: State = {
     Store: new RootStore(),
   };
+
   render() {
     const { Component, pageProps } = this.props;
 
     return (
       <Provider {...this.state.Store}>
         <Head>
-          <title>sanha's portfolio</title>
+          <title>sanha&apos;s portfolio</title>
         </Head>
         <Layout>
           <Component {...pageProps} />

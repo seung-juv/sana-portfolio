@@ -1,7 +1,9 @@
-import type { NextPage } from 'next';
+import React from 'react';
 
-const Home: NextPage = () => {
-  return <div />;
-};
+class Home extends React.Component {
+  render() {
+    return <div />;
+  }
+}
 
 export default Home;
