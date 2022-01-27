@@ -55,7 +55,8 @@
     "@typescript-eslint/no-empty-interface": 0,
     "no-console": 0,
     "no-alert": 0,
-    "react/prefer-stateless-function": 0
+    "react/prefer-stateless-function": 0,
+    "dot-notation": 0,
   },
   "settings": {
     "import/resolver": {

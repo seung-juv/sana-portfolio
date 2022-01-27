@@ -1,11 +1,13 @@
 import React from 'react';
-import Menu from '#components/Layout/Header/Menu';
+import MenuButton from '#components/Layout/Header/MenuButton';
+import GlobalNavigation from '#components/Layout/Header/GlobalNavigation';
 
 class Header extends React.Component {
   render() {
     return (
       <header>
-        <Menu />
+        <MenuButton />
+        <GlobalNavigation />
       </header>
     );
   }

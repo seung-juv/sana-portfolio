@@ -4,7 +4,7 @@ import { inject, observer } from 'mobx-react';
 import MenuStore from '#stores/MenuStore';
 import classNames from '#utils/classNames';
 
-import styles from './Menu.module.scss';
+import styles from './MenuButton.module.scss';
 
 export interface MenuProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   menuStore?: MenuStore;
@@ -24,6 +24,13 @@ class Menu extends React.Component<MenuProps> {
   menuSpan2Ref = React.createRef<HTMLSpanElement>();
 
   menuSpan3Ref = React.createRef<HTMLSpanElement>();
+
+  componentDidMount() {
+    const { menuStore } = this.props;
+    const { isMenuOpen } = menuStore ?? {};
+
+    this.handleMenuAnimation(Boolean(isMenuOpen));
+  }
 
   componentDidUpdate() {
     const { menuStore } = this.props;
