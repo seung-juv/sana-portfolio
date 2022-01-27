@@ -1,0 +1,41 @@
+.menu {
+  width: 7rem;
+  height: 7rem;
+  position: fixed;
+  top: 4rem;
+  left: 4rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 7rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px #dedede;
+  border: 1px solid #dedede;
+  transition-duration: 0.25s;
+  transition-property: border, box-shadow, gap;
+  transition-timing-function: ease;
+  z-index: 20000;
+  &:active {
+    border: 1px solid #dddddd;
+    box-shadow: 1px 1px 5px #dddddd;
+  }
+  &:not(.active) {
+    &:hover {
+      border: 1px solid #cccccc;
+      box-shadow: 1px 1px 5px #cccccc;
+      gap: 0.9rem;
+    }
+  }
+  span {
+    display: block;
+    width: 4.2rem;
+    height: 0.7rem;
+    background-color: #000000;
+    transition-duration: 0.25s;
+    transition-property: transform;
+    transition-timing-function: ease;
+  }
+}
