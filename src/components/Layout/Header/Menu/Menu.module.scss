@@ -22,10 +22,10 @@
     border: 1px solid #dddddd;
     box-shadow: 1px 1px 5px #dddddd;
   }
-  &:not(.active) {
-    &:hover {
-      border: 1px solid #cccccc;
-      box-shadow: 1px 1px 5px #cccccc;
+  &:hover {
+    border: 1px solid #cccccc;
+    box-shadow: 1px 1px 5px #cccccc;
+    &:not(.active) {
       gap: 0.9rem;
     }
   }
