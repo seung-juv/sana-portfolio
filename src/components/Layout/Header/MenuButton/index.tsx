@@ -42,6 +42,7 @@ class Menu extends React.Component<MenuProps> {
   handleMenuAnimation(isMenuOpen: boolean) {
     if (isMenuOpen) {
       this.timeline1
+        .clear()
         .to(this.menuSpan1Ref.current, {
           duration: 0.1,
           translateY: (this.menuSpan1Ref.current?.clientHeight ?? 0) * 2,
@@ -51,11 +52,12 @@ class Menu extends React.Component<MenuProps> {
           duration: 0.1,
           rotate: 45,
         });
-      this.timeline2.to(this.menuSpan2Ref.current, {
+      this.timeline2.clear().to(this.menuSpan2Ref.current, {
         duration: 0.1,
         scale: 0,
       });
       this.timeline3
+        .clear()
         .to(this.menuSpan3Ref.current, {
           duration: 0.1,
           translateY: -(this.menuSpan3Ref.current?.clientHeight ?? 0) * 2,
@@ -67,6 +69,7 @@ class Menu extends React.Component<MenuProps> {
         });
     } else {
       this.timeline1
+        .clear()
         .to(this.menuSpan1Ref.current, {
           duration: 0.1,
           rotate: 0,
@@ -76,11 +79,12 @@ class Menu extends React.Component<MenuProps> {
           duration: 0.1,
           translateY: 0,
         });
-      this.timeline2.delay(0.15).to(this.menuSpan2Ref.current, {
+      this.timeline2.clear().delay(0.15).to(this.menuSpan2Ref.current, {
         duration: 0.1,
         scale: 1,
       });
       this.timeline3
+        .clear()
         .to(this.menuSpan3Ref.current, {
           duration: 0.1,
           rotate: 0,

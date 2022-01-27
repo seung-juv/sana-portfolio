@@ -1,5 +1,5 @@
 import React from 'react';
-import gsap, { Bounce, Expo } from 'gsap';
+import gsap, { Expo } from 'gsap';
 import Link from 'next/link';
 import { inject, observer } from 'mobx-react';
 import classNames from '#utils/classNames';
@@ -71,13 +71,13 @@ class GlobalNavigation extends React.Component<GlobalNavigationProps> {
 
   handleGNBAnimation(isMenuOpen: boolean) {
     if (isMenuOpen) {
-      this.timeline.to(this.gnbRef.current, {
+      this.timeline.clear().to(this.gnbRef.current, {
         duration: 0.75,
         translateX: 0,
-        ease: Bounce.easeOut,
+        ease: Expo.easeOut,
       });
     } else {
-      this.timeline.to(this.gnbRef.current, {
+      this.timeline.clear().to(this.gnbRef.current, {
         duration: 1,
         translateX: '-100%',
         ease: Expo.easeOut,
