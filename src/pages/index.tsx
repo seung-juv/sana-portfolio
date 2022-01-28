@@ -1,7 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import classNames from '#utils/classNames';
 import styles from './Home.module.scss';
-import Link from 'next/link';
 
 class Home extends React.Component {
   render() {
