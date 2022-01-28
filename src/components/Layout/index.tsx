@@ -1,6 +1,8 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
+import classNames from '#utils/classNames';
 import MenuStore from '#stores/MenuStore';
+import styles from './Layout.module.scss';
 
 import Header from '#components/Layout/Header';
 
@@ -18,7 +20,7 @@ class Layout extends React.Component<LayoutProps> {
     return (
       <>
         <Header />
-        <main>{children}</main>
+        <main className={classNames(styles['main'])}>{children}</main>
       </>
     );
   }
