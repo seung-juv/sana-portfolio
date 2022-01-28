@@ -18,6 +18,6 @@ services:
     ports:
       - ${SERVER_PORT}:4000
     extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - "seung-ju.com:127.0.0.1"
 volumes:
   sana-portfolio:
