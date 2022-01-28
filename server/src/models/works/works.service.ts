@@ -1,11 +1,11 @@
-import { PaginatedDto } from './../../common/dtos/paginated.dto';
 import { UserEntity } from '#models/users/serializers/users.serializer';
 import { WorksRepository } from './works.repository';
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { PaginatedDto } from '#common/dtos/paginated.dto';
 import { WorkEntity } from './serializers/works.serializer';
 import { CreateWorkDto } from './dto/works.dto';
-import { PaginationDto } from '#/common/dtos/paginated.dto';
+import { PaginationDto } from '#common/dtos/paginated.dto';
 
 @Injectable()
 export class WorksService {
@@ -20,9 +20,6 @@ export class WorksService {
   ): Promise<WorkEntity> {
     return await this.worksRepository.createEntity({ user, ...createWorkDto }, [
       'user',
-      'platform',
-      'thumbnail',
-      'tools',
     ]);
   }
 

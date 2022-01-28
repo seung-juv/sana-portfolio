@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  front:
+    build:
+      context: front
+      dockerfile: Dockerfile
+    container_name: sana_portfolio_front
+    restart: always
+    ports:
+      - 6001:3000
+  server:
+    build:
+      context: server
+      dockerfile: Dockerfile
+    container_name: sana_portfolio_server
+    restart: always
+    ports:
+      - 6000:4000
+  postgres:
+    image: postgres:latest
+    container_name: sana_portfoio_postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "${POSTGRES_USER}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+    volumes:
+      - ${POSTGRES_HOME_DIR}/data/:/var/lib/postgresql/data
+volumes:
+  sana-portfolio:

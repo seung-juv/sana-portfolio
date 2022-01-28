@@ -1,7 +1,5 @@
 import { WorksController } from '#models/works/works.controller';
 import { WorksModule } from '#models/works/works.module';
-import { LogsController } from '#models/logs/logs.controller';
-import { LogsModule } from '#models/logs/logs.module';
 import { APP_GUARD } from '@nestjs/core';
 import { Module } from '@nestjs/common';
 import { AppService } from './app.service';
@@ -10,10 +8,6 @@ import { AppConfigModule } from '#config/app/config.module';
 import { PostgreDatabaseProviderModule } from '#providers/database/postgres/provider.module';
 import { FilesController } from '#models/files/files.controller';
 import { FilesModule } from '#models/files/files.module';
-import { CodesModule } from '#models/codes/codes.module';
-import { CodesController } from '#models/codes/codes.controller';
-import { ToolsModule } from '#models/tools/tools.module';
-import { ToolsController } from '#models/tools/tools.controller';
 import { AuthModule } from '#authentication/auth.module';
 import { AuthController } from '#authentication/auth.controller';
 import { UserTypesModule } from '#models/user-types/user-types.module';
@@ -35,24 +29,18 @@ import { ConfigsController } from '#models/configs/configs.controller';
     AppConfigModule,
     PostgreDatabaseProviderModule,
     FilesModule,
-    CodesModule,
-    ToolsModule,
     AuthModule,
     UserTypesModule,
     UsersModule,
-    LogsModule,
     WorksModule,
     ConfigsModule,
   ],
   controllers: [
     AppController,
     FilesController,
-    CodesController,
-    ToolsController,
     AuthController,
     UserTypesController,
     UsersController,
-    LogsController,
     WorksController,
     ConfigsController,
   ],

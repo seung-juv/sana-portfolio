@@ -10,7 +10,7 @@ async function bootstrap() {
     logger: ['error', 'warn'],
   });
   const options = new DocumentBuilder()
-    .setTitle('Seung Ju Server')
+    .setTitle('Sana Portfolio Server')
     .setVersion('1.0')
     .addBearerAuth()
     .build();

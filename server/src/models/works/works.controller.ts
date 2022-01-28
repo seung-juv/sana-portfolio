@@ -25,7 +25,7 @@ import {
   defaultWorkGroupsForSerializing,
   WorkEntity,
 } from './serializers/works.serializer';
-import { UserTypes } from '#/common/decorators/metadata/user-types.decorator';
+import { UserTypes } from '#common/decorators/metadata/user-types.decorator';
 
 @ApiTags('works')
 @Controller('works')
@@ -58,12 +58,7 @@ export class WorksController {
   async getAll(
     @Query() paginationDto: PaginationDto,
   ): Promise<PaginatedDto<WorkEntity>> {
-    return this.worksService.getAll(paginationDto, [
-      'user',
-      'platform',
-      'thumbnail',
-      'tools',
-    ]);
+    return this.worksService.getAll(paginationDto, ['user']);
   }
 
   @Get(':id')
@@ -73,12 +68,7 @@ export class WorksController {
   })
   @ApiQuery({ name: 'id', type: 'string' })
   async get(@Query('id') id: string): Promise<WorkEntity> {
-    return this.worksService.get(id, [
-      'user',
-      'platform',
-      'thumbnail',
-      'tools',
-    ]);
+    return this.worksService.get(id, ['user']);
   }
 
   @ApiBearerAuth()

@@ -1,4 +1,4 @@
-import { PaginatedDto, PaginationDto } from '#/common/dtos/paginated.dto';
+import { PaginatedDto, PaginationDto } from '#common/dtos/paginated.dto';
 import { UsersService } from './users.service';
 import {
   Body,

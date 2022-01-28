@@ -19,7 +19,7 @@ import { LoggerMiddleware } from '#common/middleware/logger.middleware';
           .valid('development', 'production', 'test', 'provision')
           .default('development'),
         APP_URL: Joi.string().default('https://server.seung-ju.com'),
-        APP_PORT: Joi.number().default(3000),
+        APP_PORT: Joi.number().default(4000),
       }),
     }),
   ],

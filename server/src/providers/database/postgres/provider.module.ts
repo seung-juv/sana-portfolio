@@ -7,16 +7,18 @@ import { PostgresConfigService } from '#config/database/postgres/config.service'
   imports: [
     TypeOrmModule.forRootAsync({
       imports: [PostgresConfigModule],
-      useFactory: async (postgresConfigService: PostgresConfigService) => ({
-        type: 'postgres' as DatabaseType,
-        host: postgresConfigService.host,
-        port: postgresConfigService.port,
-        username: postgresConfigService.username,
-        password: postgresConfigService.password,
-        database: postgresConfigService.database,
-        entities: [__dirname + '../../../../**/*.entity{.ts,.js}'],
-        synchronize: true,
-      }),
+      useFactory: async (postgresConfigService: PostgresConfigService) => {
+        return {
+          type: 'postgres' as DatabaseType,
+          host: postgresConfigService.host,
+          port: postgresConfigService.port,
+          username: postgresConfigService.username,
+          password: postgresConfigService.password,
+          database: postgresConfigService.database,
+          entities: [__dirname + '../../../../**/*.entity{.ts,.js}'],
+          synchronize: true,
+        };
+      },
       inject: [PostgresConfigService],
     } as TypeOrmModuleAsyncOptions),
   ],

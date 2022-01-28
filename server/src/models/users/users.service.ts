@@ -1,5 +1,5 @@
 import { UserTypesRepository } from './../user-types/user-types.repository';
-import { PaginationDto, PaginatedDto } from '#/common/dtos/paginated.dto';
+import { PaginationDto, PaginatedDto } from '#common/dtos/paginated.dto';
 import { UserEntity } from './serializers/users.serializer';
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';

@@ -4,17 +4,12 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
-  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { IWork } from '../interfaces/works.interface';
-import { Platform } from '#models/platforms/entities/platforms.entity';
-import { File } from '#models/files/entities/files.entity';
-import { Tool } from '#models/tools/entities/tools.entity';
-import { User } from '#models/users/entities/users.entity';
-import { WorksTool } from './works-tools.entity';
 import { ApiProperty } from '@nestjs/swagger';
+import { User } from '#models/users/entities/users.entity';
 
 @Entity({ name: 'works' })
 export class Work implements IWork {
@@ -26,49 +21,6 @@ export class Work implements IWork {
   @JoinColumn({ name: 'user', referencedColumnName: 'id' })
   @ApiProperty({ type: () => User })
   user: User;
-
-  @ManyToOne(() => Platform, (platform) => platform.platform)
-  @JoinColumn({ name: 'platform', referencedColumnName: 'platform' })
-  @ApiProperty({ type: () => Platform })
-  platform: Platform;
-
-  @Column({ type: 'text' })
-  @ApiProperty({ type: String })
-  title: string;
-
-  @Column({ type: 'text' })
-  @ApiProperty({ type: String })
-  description: string;
-
-  @Column({ type: 'text' })
-  @ApiProperty({ type: String })
-  meta: string;
-
-  @ManyToOne(() => File, (file) => file.id)
-  @JoinColumn({ name: 'thumbnail', referencedColumnName: 'id' })
-  @ApiProperty({ type: () => File })
-  thumbnail: File;
-
-  @Column({ type: 'text' })
-  @ApiProperty({ type: String })
-  github: string;
-
-  @Column({ type: 'text' })
-  @ApiProperty({ type: String })
-  page: string;
-
-  @OneToMany(() => WorksTool, (worksTool) => worksTool.work)
-  @JoinColumn({ name: 'tools', referencedColumnName: 'work' })
-  @ApiProperty({ type: [Tool] })
-  tools: Tool[];
-
-  @Column({ type: 'date', nullable: true })
-  @ApiProperty({ type: Date })
-  startAt: Date;
-
-  @Column({ type: 'date', nullable: true })
-  @ApiProperty({ type: Date })
-  endAt: Date;
 
   @Column({
     name: 'is_active',
