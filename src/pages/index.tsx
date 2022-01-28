@@ -18,6 +18,7 @@ class Home extends React.Component {
         <Link href="/portfolio">
           <a className={classNames(styles['view-portfolio'])}>VIEW PORTFOLIO</a>
         </Link>
+        <div className={classNames(styles['main-background'])} />
       </div>
     );
   }
