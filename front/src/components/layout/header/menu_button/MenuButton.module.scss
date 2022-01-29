@@ -14,7 +14,7 @@
   cursor: pointer;
   box-shadow: 1px 1px 5px #dedede;
   border: 1px solid #dedede;
-  transition-duration: 0.25s;
+  transition-duration: 0.15s;
   transition-property: border, box-shadow, gap;
   transition-timing-function: ease;
   z-index: 20000;
@@ -26,7 +26,7 @@
     border: 1px solid #cccccc;
     box-shadow: 1px 1px 5px #cccccc;
     &:not(.active) {
-      gap: 0.9rem;
+      gap: 1.1rem;
     }
   }
   span {
