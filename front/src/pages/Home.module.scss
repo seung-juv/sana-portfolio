@@ -1,7 +1,6 @@
 .container {
   box-sizing: border-box;
-  padding: 10rem 2.5rem;
-  min-height: 100vh;
+  padding: 10rem 2.5rem 0;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
@@ -21,7 +20,8 @@
   }
   .view-portfolio {
     overflow: hidden;
-    position: relative;
+    position: absolute;
+    bottom: 10rem;
     font-size: 2.8rem;
     font-weight: 700;
     letter-spacing: -0.08rem;
@@ -113,7 +113,7 @@
 
 @media screen and (max-width: 425px) {
   .container {
-    padding: 8rem 2.5rem 5rem;
+    padding: 8rem 2.5rem 0;
     .main-title-container {
       .main-title {
         width: 25rem;
@@ -147,6 +147,7 @@
     .view-portfolio {
       font-size: 1.7rem;
       padding: 2rem 6rem 2.2rem;
+      bottom: 5rem;
     }
   }
 }
