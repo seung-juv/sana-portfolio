@@ -1,5 +1,5 @@
 .container {
-  width: 99rem;
+  width: 80%;
   margin: 0 auto;
   padding-top: 7rem;
   .title {
@@ -11,10 +11,26 @@
   }
   .sub-title {
     font-size: 1.8rem;
-    color: #585858;
+    color: #888888;
     line-height: 3.2rem;
+    word-break: keep-all;
     font-weight: 600;
     letter-spacing: -0.06rem;
     margin-bottom: 6rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .container {
+    width: 100%;
+    padding: 7rem 2rem 2rem;
+    .title {
+      font-size: 4.6rem;
+      line-height: 5.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .sub-title {
+      line-height: 3rem;
+    }
   }
 }
