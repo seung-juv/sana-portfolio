@@ -25,6 +25,10 @@ export class ModelRepository<T, K extends ModelEntity> extends Repository<T> {
   ): Promise<K[] | PaginatedDto<K> | null> {
     const { pagination, ...optionsWithoutPagination } = options ?? {};
 
+    const page = Number(pagination.page);
+    const limit = Number(pagination.limit);
+    const offset = Number(pagination.offset);
+
     if (pagination?.pageable === true) {
       const totalResults = await this.count({
         where: optionsWithoutPagination.where,
@@ -33,18 +37,22 @@ export class ModelRepository<T, K extends ModelEntity> extends Repository<T> {
         pagination.offset + (pagination.page - 1) * pagination.limit,
       );
       const results = await this.find({
-        take: pagination.limit,
+        take: limit,
         skip,
         ...optionsWithoutPagination,
       });
 
+      const resultsPerPage = results.length;
+
       return {
         pageInfo: {
-          totalResults: Number(totalResults),
-          resultsPerPage: results.length,
-          page: Number(pagination.page),
-          limit: Number(pagination.limit),
-          offset: Number(pagination.offset),
+          totalResults,
+          resultsPerPage,
+          page,
+          limit,
+          offset,
+          hasNext: offset + limit * page < totalResults,
+          hasPrev: page > 0,
         },
         results: this.transformMany(results),
       };

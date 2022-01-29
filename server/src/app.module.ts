@@ -1,5 +1,5 @@
-import { WorksController } from '#models/works/works.controller';
-import { WorksModule } from '#models/works/works.module';
+import { PortfoliosController } from '#models/portfolios/portfolios.controller';
+import { PortfoliosModule } from '#models/portfolios/portfolios.module';
 import { APP_GUARD } from '@nestjs/core';
 import { Module } from '@nestjs/common';
 import { AppService } from './app.service';
@@ -32,7 +32,7 @@ import { ConfigsController } from '#models/configs/configs.controller';
     AuthModule,
     UserTypesModule,
     UsersModule,
-    WorksModule,
+    PortfoliosModule,
     ConfigsModule,
   ],
   controllers: [
@@ -41,7 +41,7 @@ import { ConfigsController } from '#models/configs/configs.controller';
     AuthController,
     UserTypesController,
     UsersController,
-    WorksController,
+    PortfoliosController,
     ConfigsController,
   ],
   providers: [

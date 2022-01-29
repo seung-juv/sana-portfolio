@@ -1,6 +1,6 @@
 import React from 'react';
-import MenuButton from '#components/Layout/Header/MenuButton';
-import GlobalNavigation from '#components/Layout/Header/GlobalNavigation';
+import MenuButton from '#components/layout/header/menu_button';
+import GlobalNavigation from '#components/layout/header/globalNavigation';
 
 class Header extends React.Component {
   render() {

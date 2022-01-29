@@ -11,7 +11,7 @@ import '#styles/fonts.css';
 import '#styles/reset.css';
 import '#styles/global.css';
 
-import Layout from '#components/Layout';
+import Layout from '#components/layout';
 
 interface State {
   Store: RootStore;

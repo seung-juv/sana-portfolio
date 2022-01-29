@@ -53,7 +53,7 @@ export class AppController {
   @UserTypes('USER')
   @UseInterceptors(ClassSerializerInterceptor)
   @ApiOkResponse({ type: UserEntity })
-  async update(
+  async updateProfile(
     @Req() req,
     @Body() updateUserDto: UpdateUserDto,
   ): Promise<UserEntity | null> {

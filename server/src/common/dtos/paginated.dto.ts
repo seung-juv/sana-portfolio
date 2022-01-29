@@ -26,6 +26,12 @@ export class PageInfo {
 
   @ApiProperty({ type: Number })
   resultsPerPage: number;
+
+  @ApiProperty({ type: Boolean })
+  hasNext: boolean;
+
+  @ApiProperty({ type: Boolean })
+  hasPrev: boolean;
 }
 
 export class PaginatedDto<TData> {
