@@ -1,4 +1,5 @@
 import React from 'react';
+import { isMobile } from 'react-device-detect';
 import gsap, { Expo } from 'gsap';
 import Link from 'next/link';
 import { inject, observer } from 'mobx-react';
@@ -78,6 +79,7 @@ class GlobalNavigation extends React.Component<GlobalNavigationProps> {
       this.timeline1.clear().to(this.gnbRef.current, {
         duration: 0.75,
         translateX: 0,
+        translateY: 0,
         ease: Expo.easeOut,
       });
 
@@ -90,7 +92,8 @@ class GlobalNavigation extends React.Component<GlobalNavigationProps> {
     } else {
       this.timeline1.clear().to(this.gnbRef.current, {
         duration: 1,
-        translateX: '-100%',
+        translateX: isMobile ? 0 : '-100%',
+        translateY: isMobile ? '-100%' : 0,
         ease: Expo.easeOut,
       });
       this.timeline2

@@ -7,10 +7,12 @@
   top: 0;
   left: 0;
   display: flex;
-  border: black 5px solid;
+  border: 5px solid #000000;
   box-sizing: border-box;
   background: #fff;
   z-index: 2000;
+  &.active {
+  }
   .gnb-lists {
     flex: 1;
     .gnb-list {
@@ -72,4 +74,28 @@
   opacity: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1999;
+}
+
+@media screen and (max-width: 425px) {
+  .gnb {
+    width: 100%;
+    height: auto;
+    padding: 10rem 3.5rem 4rem;
+    flex-flow: row nowrap;
+    border: 2px solid #000000;
+    .gnb-lists {
+      .gnb-list {
+        &:not(:last-child) {
+          margin-bottom: 2rem;
+        }
+        a {
+          font-size: 3.2rem;
+        }
+      }
+    }
+    .social-lists {
+      flex-flow: column nowrap;
+      gap: 1.5rem;
+    }
+  }
 }

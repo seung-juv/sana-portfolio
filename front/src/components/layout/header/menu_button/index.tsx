@@ -19,6 +19,8 @@ class Menu extends React.Component<MenuProps> {
 
   timeline3 = gsap.timeline();
 
+  menuRef = React.createRef<HTMLButtonElement>();
+
   menuSpan1Ref = React.createRef<HTMLSpanElement>();
 
   menuSpan2Ref = React.createRef<HTMLSpanElement>();
@@ -40,12 +42,15 @@ class Menu extends React.Component<MenuProps> {
   }
 
   handleMenuAnimation(isMenuOpen: boolean) {
+    const gap =
+      (this.menuRef.current && Number(window.getComputedStyle(this.menuRef.current).gap?.replace('px', ''))) ?? 0;
+
     if (isMenuOpen) {
       this.timeline1
         .clear()
         .to(this.menuSpan1Ref.current, {
           duration: 0.1,
-          translateY: (this.menuSpan1Ref.current?.clientHeight ?? 0) * 2,
+          translateY: gap + (this.menuSpan1Ref.current?.clientHeight ?? 0),
         })
         .to(this.menuSpan1Ref.current, {
           delay: 0.15,
@@ -60,7 +65,7 @@ class Menu extends React.Component<MenuProps> {
         .clear()
         .to(this.menuSpan3Ref.current, {
           duration: 0.1,
-          translateY: -(this.menuSpan3Ref.current?.clientHeight ?? 0) * 2,
+          translateY: -(gap + (this.menuSpan3Ref.current?.clientHeight ?? 0)),
         })
         .to(this.menuSpan3Ref.current, {
           delay: 0.15,
@@ -103,6 +108,7 @@ class Menu extends React.Component<MenuProps> {
 
     return (
       <button
+        ref={this.menuRef}
         type="button"
         onClick={handleToggleMenu}
         className={classNames(styles.menu, isMenuOpen && styles.active)}

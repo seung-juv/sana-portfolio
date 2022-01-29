@@ -1,6 +1,6 @@
 .container {
   box-sizing: border-box;
-  padding: 10rem 0;
+  padding: 10rem 2.5rem;
   min-height: 100vh;
   display: flex;
   flex-flow: column nowrap;
@@ -85,9 +85,9 @@
       height: 100%;
       position: absolute;
       top: 0;
-      background-size: cover;
+      background-size: inherit;
       background-repeat: no-repeat;
-      background-position: right bottom;
+      background-position: inherit;
     }
     &::before {
       @keyframes bounce {
@@ -106,7 +106,46 @@
       animation: bounce 0.8s infinite linear;
     }
     &::after {
-      background-image: url('/assets/images/home/home_background.png');
+      background-image: url('/assets/images/home/home_background_1.png');
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .container {
+    .main-title-container {
+      .main-title {
+        width: 25rem;
+        margin-bottom: 1.5rem;
+      }
+      .main-subtitle {
+        font-size: 1.2rem;
+        line-height: 2rem;
+      }
+    }
+    .main-background {
+      background-image: url('/assets/images/home/m_home_background_3.png');
+      &::before {
+        @keyframes bounce {
+          0% {
+            background-position: right 100%;
+          }
+          50% {
+            background-position: right calc(100% - 2rem);
+          }
+          100% {
+            background-position: right 100%;
+          }
+        }
+        background-image: url('/assets/images/home/m_home_background_2.png');
+      }
+      &::after {
+        background-image: url('/assets/images/home/m_home_background_1.png');
+      }
+    }
+    .view-portfolio {
+      font-size: 1.7rem;
+      padding: 2rem 6rem 2.2rem;
     }
   }
 }

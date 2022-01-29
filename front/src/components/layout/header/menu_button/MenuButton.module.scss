@@ -18,16 +18,10 @@
   transition-property: border, box-shadow, gap;
   transition-timing-function: ease;
   z-index: 20000;
-  &:active {
+  &:active,
+  &:hover {
     border: 1px solid #dddddd;
     box-shadow: 1px 1px 5px #dddddd;
-  }
-  &:hover {
-    border: 1px solid #cccccc;
-    box-shadow: 1px 1px 5px #cccccc;
-    &:not(.active) {
-      gap: 1.1rem;
-    }
   }
   span {
     display: block;
@@ -37,5 +31,20 @@
     transition-duration: 0.25s;
     transition-property: transform;
     transition-timing-function: ease;
+  }
+}
+
+// Mobile
+@media screen and (max-width: 425px) {
+  .menu {
+    width: 3.6rem;
+    height: 3.6rem;
+    gap: 0.5rem;
+    top: 1.5rem;
+    left: 1.5rem;
+    span {
+      width: 2rem;
+      height: 0.2rem;
+    }
   }
 }
