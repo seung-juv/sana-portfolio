@@ -1,6 +1,7 @@
 import React from 'react';
-import gsap from 'gsap';
-import GsapScrollTrigger from 'gsap/ScrollTrigger';
+import { gsap } from 'gsap/dist/gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { isMobile } from 'react-device-detect';
 import Link from 'next/link';
 import moment from 'moment';
 import styles from './Item.module.scss';
@@ -13,7 +14,7 @@ export interface PortflioListItemProps
   htmlId?: string;
 }
 
-gsap.registerPlugin(GsapScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 class PortfolioListItem extends React.Component<PortflioListItemProps> {
   listItemRef = React.createRef<HTMLAnchorElement>();
@@ -27,17 +28,18 @@ class PortfolioListItem extends React.Component<PortflioListItemProps> {
   }
 
   scrollTrigger() {
-    console.log((this.listItemRef.current?.offsetTop ?? 0) - 25);
-    GsapScrollTrigger.create({
-      once: false,
-      trigger: this.listItemRef.current,
-      toggleClass: {
-        className: styles['active'],
-        targets: this.listItemRef.current,
-      },
-      start: (this.listItemRef.current?.offsetTop ?? 0) - window.innerHeight / 2 + 100,
-      end: this.listItemRef.current?.offsetTop ?? 0,
-    });
+    if (isMobile) {
+      ScrollTrigger.create({
+        once: false,
+        trigger: this.listItemRef.current,
+        toggleClass: {
+          className: styles['active'],
+          targets: this.listItemRef.current,
+        },
+        start: (this.listItemRef.current?.offsetTop ?? 0) - window.innerHeight / 2 + 100,
+        end: this.listItemRef.current?.offsetTop ?? 0,
+      });
+    }
   }
 
   render() {
