@@ -36,7 +36,7 @@ class PortfolioListItem extends React.Component<PortflioListItemProps> {
           className: styles['active'],
           targets: this.listItemRef.current,
         },
-        start: (this.listItemRef.current?.offsetTop ?? 0) - window.innerHeight / 2 + 100,
+        start: (this.listItemRef.current?.offsetTop ?? 0) - window.innerHeight / 2 + 50,
         end: this.listItemRef.current?.offsetTop ?? 0,
       });
     }
