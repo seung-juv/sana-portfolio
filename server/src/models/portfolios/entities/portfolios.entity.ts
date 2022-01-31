@@ -23,7 +23,7 @@ export class Portfolio implements IPortfolio {
   @ApiProperty({ type: () => User })
   user: User;
 
-  @ManyToOne(() => File, (file) => file.id)
+  @ManyToOne(() => File, (file) => file.id, { nullable: false })
   @JoinColumn({ name: 'thumbnail', referencedColumnName: 'id' })
   @ApiProperty({ type: () => File })
   thumbnail: File;
