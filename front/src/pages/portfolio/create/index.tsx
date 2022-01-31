@@ -4,7 +4,7 @@ import { NextRouter } from 'next/router';
 import classNames from '#utils/classNames';
 import styles from './Create.module.scss';
 import handleError from '#utils/handleError';
-import { createPortfolios, CreatePortfolioDto } from '#apis/portfolios';
+import { createPortfolios, CreatePortfolioDto, IPortfolio, getPortfolio } from '#apis/portfolios';
 import uploadFiles from '#utils/uploadFiles';
 
 export interface PortfolioCreateProps {
@@ -12,6 +12,7 @@ export interface PortfolioCreateProps {
 }
 
 interface State {
+  portfolio: IPortfolio | null;
   loading: boolean;
 }
 
@@ -21,8 +22,28 @@ class PortfolioCreate extends React.Component<PortfolioCreateProps, State> {
     super(props);
 
     this.state = {
+      portfolio: null,
       loading: false,
     };
+  }
+
+  async componentDidMount() {
+    const { router } = this.props;
+    const { id } = router.query;
+
+    if (id) {
+      try {
+        const { data: responseData } = await getPortfolio(String(id));
+        this.setState((prevState) => ({
+          ...prevState,
+          portfolio: responseData,
+          loading: false,
+        }));
+      } catch (error) {
+        handleError(error);
+        await router.replace('/portfolio');
+      }
+    }
   }
 
   async handleSubmit(event: React.FormEvent<HTMLFormElement>): Promise<void> {
@@ -57,15 +78,12 @@ class PortfolioCreate extends React.Component<PortfolioCreateProps, State> {
         loading: true,
       }));
 
-      const { data: thumbnailData } = await uploadFiles(thumbnail.files[0]);
-      const { data: imageData } = await uploadFiles(image.files[0]);
-
       const requestBody = {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         title: title.value,
         category: category.value,
-        thumbnail: thumbnailData,
+        thumbnail: thumbnail.files[0],
         description: description.value,
         startAt: startAt.value,
         endAt: endAt.value,
@@ -75,15 +93,24 @@ class PortfolioCreate extends React.Component<PortfolioCreateProps, State> {
         contents: contents.value,
         youtubeUrl: youtubeUrl.value,
         redirectUrl: redirectUrl.value,
-        image: imageData,
+        image: image.files[0],
         isActive: true,
       } as CreatePortfolioDto;
+
+      if (thumbnail.files[0]) {
+        const { data: responseData } = await uploadFiles(thumbnail.files[0]);
+        requestBody.thumbnail = responseData;
+      }
+      if (image.files[0]) {
+        const { data: responseData } = await uploadFiles(image.files[0]);
+        requestBody.image = responseData;
+      }
 
       await createPortfolios(requestBody);
 
       alert('글 등록 완료 되었습니다.');
 
-      await router.push('/portfolios');
+      await router.push('/portfolio');
     } catch (error) {
       handleError(error);
     } finally {
@@ -95,6 +122,9 @@ class PortfolioCreate extends React.Component<PortfolioCreateProps, State> {
   }
 
   render() {
+    const { portfolio } = this.state;
+    console.log(portfolio);
+
     return (
       <form method="POST" className={classNames(styles['container'])} onSubmit={this.handleSubmit}>
         <label htmlFor="form-title">
