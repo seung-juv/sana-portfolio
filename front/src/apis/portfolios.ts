@@ -1,4 +1,4 @@
-import { AxiosResponse } from 'axios';
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { AxiosPaginatedRequestConfig, PaginatedDto } from '#apis/apis';
 import { IUser } from '#apis/users';
 import { IFile } from '#apis/files';
@@ -40,6 +40,14 @@ export interface CreatePortfolioDto {
   startAt: Date;
   endAt: Date;
   isActive: boolean;
+}
+
+export function getPortfolio(
+  id: string,
+  config?: AxiosRequestConfig,
+): Promise<AxiosResponse<IPortfolio>> {
+  const endpoint = `/portfolios/${id}`;
+  return api.get(endpoint, config);
 }
 
 export function getPortfolios(config: AxiosPaginatedRequestConfig): Promise<AxiosResponse<PaginatedDto<IPortfolio>>> {
