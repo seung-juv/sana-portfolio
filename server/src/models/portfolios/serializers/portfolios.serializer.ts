@@ -24,6 +24,36 @@ export class PortfolioEntity extends ModelEntity implements IPortfolio {
   @ApiProperty({ type: () => File })
   image: File;
 
+  @ApiProperty({ type: () => File })
+  image1: File;
+
+  @ApiProperty({ type: () => File })
+  image2: File;
+
+  @ApiProperty({ type: () => File })
+  image3: File;
+
+  @ApiProperty({ type: () => File })
+  image4: File;
+
+  @ApiProperty({ type: () => File })
+  image5: File;
+
+  @ApiProperty({ type: () => File })
+  image6: File;
+
+  @ApiProperty({ type: () => File })
+  image7: File;
+
+  @ApiProperty({ type: () => File })
+  image8: File;
+
+  @ApiProperty({ type: () => File })
+  image9: File;
+
+  @ApiProperty({ type: () => File })
+  image10: File;
+
   @ApiProperty({ type: String })
   category: string;
 

@@ -90,7 +90,16 @@ class PortfolioCreate extends React.Component<PortfolioCreateProps, State> {
       contents,
       youtubeId,
       redirectUrl,
-      image,
+      image1,
+      image2,
+      image3,
+      image4,
+      image5,
+      image6,
+      image7,
+      image8,
+      image9,
+      image10,
     } = event.target as HTMLFormElement;
 
     try {
@@ -114,7 +123,16 @@ class PortfolioCreate extends React.Component<PortfolioCreateProps, State> {
         contents: contents.value,
         youtubeId: youtubeId.value,
         redirectUrl: redirectUrl.value,
-        image: image.files[0],
+        image1: image1.files[0],
+        image2: image2.files[0],
+        image3: image3.files[0],
+        image4: image4.files[0],
+        image5: image5.files[0],
+        image6: image6.files[0],
+        image7: image7.files[0],
+        image8: image8.files[0],
+        image9: image9.files[0],
+        image10: image10.files[0],
         isActive: true,
       } as CreatePortfolioDto;
 
@@ -122,9 +140,45 @@ class PortfolioCreate extends React.Component<PortfolioCreateProps, State> {
         const { data: responseData } = await uploadFiles(thumbnail.files[0]);
         requestBody.thumbnail = responseData;
       }
-      if (image.files[0]) {
-        const { data: responseData } = await uploadFiles(image.files[0]);
-        requestBody.image = responseData;
+      if (image1.files[0]) {
+        const { data: responseData } = await uploadFiles(image1.files[0]);
+        requestBody.image1 = responseData;
+      }
+      if (image2.files[0]) {
+        const { data: responseData } = await uploadFiles(image2.files[0]);
+        requestBody.image2 = responseData;
+      }
+      if (image3.files[0]) {
+        const { data: responseData } = await uploadFiles(image3.files[0]);
+        requestBody.image3 = responseData;
+      }
+      if (image4.files[0]) {
+        const { data: responseData } = await uploadFiles(image4.files[0]);
+        requestBody.image4 = responseData;
+      }
+      if (image5.files[0]) {
+        const { data: responseData } = await uploadFiles(image5.files[0]);
+        requestBody.image5 = responseData;
+      }
+      if (image6.files[0]) {
+        const { data: responseData } = await uploadFiles(image6.files[0]);
+        requestBody.image6 = responseData;
+      }
+      if (image7.files[0]) {
+        const { data: responseData } = await uploadFiles(image7.files[0]);
+        requestBody.image7 = responseData;
+      }
+      if (image8.files[0]) {
+        const { data: responseData } = await uploadFiles(image8.files[0]);
+        requestBody.image8 = responseData;
+      }
+      if (image9.files[0]) {
+        const { data: responseData } = await uploadFiles(image9.files[0]);
+        requestBody.image9 = responseData;
+      }
+      if (image10.files[0]) {
+        const { data: responseData } = await uploadFiles(image10.files[0]);
+        requestBody.image10 = responseData;
       }
 
       if (typeof id === 'string') {
@@ -209,9 +263,45 @@ class PortfolioCreate extends React.Component<PortfolioCreateProps, State> {
           이동 페이지
           <input type="text" id="form-redirect-url" name="redirectUrl" defaultValue={portfolio?.redirectUrl} />
         </label>
-        <label htmlFor="form-image">
-          이미지
-          <input type="file" id="form-image" name="image" accept="image/*" />
+        <label htmlFor="form-image-1">
+          이미지1
+          <input type="file" id="form-image-1" name="image1" accept="image/*" />
+        </label>
+        <label htmlFor="form-image-2">
+          이미지2
+          <input type="file" id="form-image-2" name="image2" accept="image/*" />
+        </label>
+        <label htmlFor="form-image-3">
+          이미지3
+          <input type="file" id="form-image-3" name="image3" accept="image/*" />
+        </label>
+        <label htmlFor="form-image-4">
+          이미지4
+          <input type="file" id="form-image-4" name="image4" accept="image/*" />
+        </label>
+        <label htmlFor="form-image-5">
+          이미지5
+          <input type="file" id="form-image-5" name="image5" accept="image/*" />
+        </label>
+        <label htmlFor="form-image-6">
+          이미지6
+          <input type="file" id="form-image-6" name="image6" accept="image/*" />
+        </label>
+        <label htmlFor="form-image-7">
+          이미지7
+          <input type="file" id="form-image-7" name="image7" accept="image/*" />
+        </label>
+        <label htmlFor="form-image-8">
+          이미지8
+          <input type="file" id="form-image-8" name="image8" accept="image/*" />
+        </label>
+        <label htmlFor="form-image-9">
+          이미지9
+          <input type="file" id="form-image-9" name="image9" accept="image/*" />
+        </label>
+        <label htmlFor="form-image-10">
+          이미지10
+          <input type="file" id="form-image-10" name="image10" accept="image/*" />
         </label>
         <button type="submit">{portfolio ? '글수정' : '글등록'}</button>
       </form>

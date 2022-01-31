@@ -5,6 +5,16 @@ export interface IPortfolio {
   user: User;
   thumbnail: File;
   image: File;
+  image1: File;
+  image2: File;
+  image3: File;
+  image4: File;
+  image5: File;
+  image6: File;
+  image7: File;
+  image8: File;
+  image9: File;
+  image10: File;
   category: string;
   title: string;
   description: string;

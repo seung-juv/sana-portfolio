@@ -33,6 +33,57 @@ export class Portfolio implements IPortfolio {
   @ApiProperty({ type: () => File })
   image: File;
 
+  @ManyToOne(() => File, (file) => file.id, { nullable: true })
+  @JoinColumn({ name: 'image_1', referencedColumnName: 'id' })
+  @ApiProperty({ type: () => File })
+  image1: File;
+
+  @ManyToOne(() => File, (file) => file.id, { nullable: true })
+  @JoinColumn({ name: 'image_2', referencedColumnName: 'id' })
+  @ApiProperty({ type: () => File })
+  image2: File;
+
+  @ManyToOne(() => File, (file) => file.id, { nullable: true })
+  @JoinColumn({ name: 'image_3', referencedColumnName: 'id' })
+  @ApiProperty({ type: () => File })
+  image3: File;
+
+  @ManyToOne(() => File, (file) => file.id, { nullable: true })
+  @JoinColumn({ name: 'image_4', referencedColumnName: 'id' })
+  @ApiProperty({ type: () => File })
+  image4: File;
+
+  @ManyToOne(() => File, (file) => file.id, { nullable: true })
+  @JoinColumn({ name: 'image_5', referencedColumnName: 'id' })
+  @ApiProperty({ type: () => File })
+  image5: File;
+
+  @ManyToOne(() => File, (file) => file.id, { nullable: true })
+  @JoinColumn({ name: 'image_6', referencedColumnName: 'id' })
+  @ApiProperty({ type: () => File })
+  image6: File;
+
+  @ManyToOne(() => File, (file) => file.id, { nullable: true })
+  @JoinColumn({ name: 'image_7', referencedColumnName: 'id' })
+  @ApiProperty({ type: () => File })
+  image7: File;
+
+  @ManyToOne(() => File, (file) => file.id, { nullable: true })
+  @JoinColumn({ name: 'image_8', referencedColumnName: 'id' })
+  @ApiProperty({ type: () => File })
+  image8: File;
+
+  @ManyToOne(() => File, (file) => file.id, { nullable: true })
+  @JoinColumn({ name: 'image_9', referencedColumnName: 'id' })
+  @ApiProperty({ type: () => File })
+  image9: File;
+
+  @ManyToOne(() => File, (file) => file.id, { nullable: true })
+  @JoinColumn({ name: 'image_10', referencedColumnName: 'id' })
+  @ApiProperty({ type: () => File })
+  image10: File;
+
+
   @Column({ type: 'text', nullable: false })
   @ApiProperty({ type: String })
   category: string;
