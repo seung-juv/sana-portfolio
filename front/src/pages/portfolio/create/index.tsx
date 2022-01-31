@@ -10,11 +10,11 @@ import { createPortfolio, CreatePortfolioDto, IPortfolio, getPortfolio, updatePo
 import uploadFiles from '#utils/uploadFiles';
 
 export interface PortfolioCreateProps {
+  portfolio: IPortfolio | null;
   router: NextRouter;
 }
 
 interface State {
-  portfolio: IPortfolio | null;
   loading: boolean;
 }
 
@@ -42,28 +42,8 @@ class PortfolioCreate extends React.Component<PortfolioCreateProps, State> {
     super(props);
 
     this.state = {
-      portfolio: null,
       loading: false,
     };
-  }
-
-  async componentDidMount() {
-    const { router } = this.props;
-    const { id } = router.query;
-
-    if (id) {
-      try {
-        const { data: responseData } = await getPortfolio(String(id));
-        this.setState((prevState) => ({
-          ...prevState,
-          portfolio: responseData,
-          loading: false,
-        }));
-      } catch (error) {
-        handleError(error);
-        await router.replace('/portfolio');
-      }
-    }
   }
 
   async handleSubmit(event: React.FormEvent<HTMLFormElement>): Promise<void> {
@@ -201,7 +181,7 @@ class PortfolioCreate extends React.Component<PortfolioCreateProps, State> {
   }
 
   render() {
-    const { portfolio } = this.state;
+    const { portfolio } = this.props;
 
     return (
       <form method="POST" className={classNames(styles['container'])} onSubmit={this.handleSubmit}>
