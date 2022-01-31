@@ -67,7 +67,7 @@ class PortfolioCreate extends React.Component<PortfolioCreateProps, State> {
       program,
       etc,
       contents,
-      youtubeUrl,
+      youtubeId,
       redirectUrl,
       image,
     } = event.target as HTMLFormElement;
@@ -91,7 +91,7 @@ class PortfolioCreate extends React.Component<PortfolioCreateProps, State> {
         program: program.value,
         etc: etc.value,
         contents: contents.value,
-        youtubeUrl: youtubeUrl.value,
+        youtubeId: youtubeId.value,
         redirectUrl: redirectUrl.value,
         image: image.files[0],
         isActive: true,
@@ -169,7 +169,7 @@ class PortfolioCreate extends React.Component<PortfolioCreateProps, State> {
         </label>
         <label htmlFor="form-youtube-url">
           유튜브
-          <input type="text" id="form-youtube-url" name="youtubeUrl" />
+          <input type="text" id="form-youtube-url" name="youtubeId" />
         </label>
         <label htmlFor="form-redirect-url">
           이동 페이지

@@ -65,9 +65,9 @@ export class Portfolio implements IPortfolio {
   @ApiProperty({ type: String })
   redirectUrl: string;
 
-  @Column({ name: 'youtube_url', type: 'text', nullable: true })
+  @Column({ name: 'youtube_id', type: 'text', nullable: true })
   @ApiProperty({ type: String })
-  youtubeUrl: string;
+  youtubeId: string;
 
   @Column({ name: 'start_at', type: 'timestamp' })
   @ApiProperty({ type: Date })

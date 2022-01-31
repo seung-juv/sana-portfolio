@@ -33,7 +33,7 @@ export class CreatePortfolioDto {
   redirectUrl: string;
 
   @ApiProperty({ type: String })
-  youtubeUrl: string;
+  youtubeId: string;
 
   @ApiProperty({ type: Date })
   startAt: Date;
@@ -80,7 +80,7 @@ export class UpdatePorfolioDto {
   redirectUrl: string;
 
   @ApiProperty({ type: String })
-  youtubeUrl: string;
+  youtubeId: string;
 
   @ApiProperty({ type: Date })
   startAt: Date;

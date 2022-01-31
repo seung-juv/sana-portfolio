@@ -28,7 +28,7 @@ class PortfolioDetails extends React.Component<PortfolioDetailsProps> {
 
   render() {
     const { portfolio } = this.props;
-    const { category, title, startAt, endAt, size, program, etc, contents, image } = portfolio;
+    const { category, title, startAt, endAt, size, program, etc, contents, image, youtubeId } = portfolio;
 
     return (
       <div className={classNames(styles['container'])}>
@@ -59,7 +59,18 @@ class PortfolioDetails extends React.Component<PortfolioDetailsProps> {
           </div>
           <pre className={classNames(styles['contents'])}>{contents}</pre>
         </div>
-        <div className={classNames(styles['image-container'])}>{image && <img src={image.uri} alt={title} />}</div>
+        <div className={classNames(styles['image-container'])}>
+          {youtubeId && (
+            <iframe
+              src={`https://www.youtube.com/embed/${youtubeId}`}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          )}
+          {image && <img src={image.uri} alt={title} />}
+        </div>
       </div>
     );
   }

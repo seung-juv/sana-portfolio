@@ -13,7 +13,7 @@ export interface IPortfolio {
   etc: string;
   contents: string;
   redirectUrl: string;
-  youtubeUrl: string;
+  youtubeId: string;
   startAt: Date;
   endAt: Date;
   isActive: boolean;

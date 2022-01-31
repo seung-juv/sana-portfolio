@@ -17,7 +17,7 @@ export interface IPortfolio {
   etc: string;
   contents: string;
   redirectUrl: string;
-  youtubeUrl: string;
+  youtubeId: string;
   startAt: Date;
   endAt: Date;
   isActive: boolean;
@@ -36,7 +36,7 @@ export interface CreatePortfolioDto {
   etc: string;
   contents: string;
   redirectUrl: string;
-  youtubeUrl: string;
+  youtubeId: string;
   startAt: Date;
   endAt: Date;
   isActive: boolean;

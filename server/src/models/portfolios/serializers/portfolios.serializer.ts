@@ -49,7 +49,7 @@ export class PortfolioEntity extends ModelEntity implements IPortfolio {
   redirectUrl: string;
 
   @ApiProperty({ type: String })
-  youtubeUrl: string;
+  youtubeId: string;
 
   @ApiProperty({ type: Date })
   startAt: Date;
