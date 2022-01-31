@@ -79,7 +79,7 @@ export class PortfoliosController {
   })
   @ApiQuery({ name: 'id', type: 'string' })
   async update(
-    @Query('id') id: string,
+    @Param('id') id: string,
     @Body() UpdatePorfolioDto: UpdatePorfolioDto,
   ): Promise<PortfolioEntity | null> {
     return this.portfoliosService.update(id, UpdatePorfolioDto);

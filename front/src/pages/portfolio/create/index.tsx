@@ -1,10 +1,12 @@
 import React from 'react';
+import moment from 'moment';
+import { NextPageContext } from 'next';
 import { autobind } from 'core-decorators';
 import { NextRouter } from 'next/router';
 import classNames from '#utils/classNames';
 import styles from './Create.module.scss';
 import handleError from '#utils/handleError';
-import { createPortfolios, CreatePortfolioDto, IPortfolio, getPortfolio } from '#apis/portfolios';
+import { createPortfolio, CreatePortfolioDto, IPortfolio, getPortfolio, updatePortfolio } from '#apis/portfolios';
 import uploadFiles from '#utils/uploadFiles';
 
 export interface PortfolioCreateProps {
@@ -18,6 +20,22 @@ interface State {
 
 @autobind
 class PortfolioCreate extends React.Component<PortfolioCreateProps, State> {
+  static async getInitialProps(ctx: NextPageContext) {
+    const props = {
+      portfolio: null,
+    } as { portfolio: null | IPortfolio };
+
+    const { id } = ctx.query;
+
+    const { data: responseData } = await getPortfolio(String(id));
+
+    if (responseData) {
+      props.portfolio = responseData;
+    }
+
+    return props;
+  }
+
   constructor(props: PortfolioCreateProps) {
     super(props);
 
@@ -50,6 +68,7 @@ class PortfolioCreate extends React.Component<PortfolioCreateProps, State> {
     event.preventDefault();
 
     const { router } = this.props;
+    const { id } = router.query;
     const { loading } = this.state;
 
     if (loading) {
@@ -106,11 +125,15 @@ class PortfolioCreate extends React.Component<PortfolioCreateProps, State> {
         requestBody.image = responseData;
       }
 
-      await createPortfolios(requestBody);
-
-      alert('글 등록 완료 되었습니다.');
-
-      await router.push('/portfolio');
+      if (typeof id === 'string') {
+        await updatePortfolio(id, requestBody);
+        alert('글 수정되었습니다.');
+        await router.push(`/portfolio/${id}`);
+      } else {
+        await createPortfolio(requestBody);
+        alert('글 등록 완료 되었습니다.');
+        await router.push(`/portfolio`);
+      }
     } catch (error) {
       handleError(error);
     } finally {
@@ -123,17 +146,16 @@ class PortfolioCreate extends React.Component<PortfolioCreateProps, State> {
 
   render() {
     const { portfolio } = this.state;
-    console.log(portfolio);
 
     return (
       <form method="POST" className={classNames(styles['container'])} onSubmit={this.handleSubmit}>
         <label htmlFor="form-title">
           제목
-          <input type="text" id="form-title" name="title" />
+          <input type="text" id="form-title" name="title" defaultValue={portfolio?.title} />
         </label>
         <label htmlFor="form-category">
           카테고리
-          <input type="text" id="form-category" name="category" />
+          <input type="text" id="form-category" name="category" defaultValue={portfolio?.category} />
         </label>
         <label htmlFor="form-thumbnail">
           썸네일
@@ -141,45 +163,55 @@ class PortfolioCreate extends React.Component<PortfolioCreateProps, State> {
         </label>
         <label htmlFor="form-description">
           설명
-          <input type="text" id="form-description" name="description" />
+          <input type="text" id="form-description" name="description" defaultValue={portfolio?.description} />
         </label>
         <label htmlFor="form-start-at">
           제작 시작기간
-          <input type="date" id="form-start-at" name="startAt" />
+          <input
+            type="date"
+            id="form-start-at"
+            name="startAt"
+            defaultValue={moment(portfolio?.startAt).format('YYYY-MM-DD')}
+          />
         </label>
         <label htmlFor="form-end-at">
           제작 끝
-          <input type="date" id="form-end-at" name="endAt" />
+          <input
+            type="date"
+            id="form-end-at"
+            name="endAt"
+            defaultValue={moment(portfolio?.endAt).format('YYYY-MM-DD')}
+          />
         </label>
         <label htmlFor="form-size">
           사이즈
-          <input type="text" id="form-size" name="size" />
+          <input type="text" id="form-size" name="size" defaultValue={portfolio?.size} />
         </label>
         <label htmlFor="form-program">
           프로그램
-          <input type="text" id="form-program" name="program" />
+          <input type="text" id="form-program" name="program" defaultValue={portfolio?.program} />
         </label>
         <label htmlFor="form-etc">
           기타사항
-          <input type="text" id="form-etc" name="etc" />
+          <input type="text" id="form-etc" name="etc" defaultValue={portfolio?.etc} />
         </label>
         <label htmlFor="form-contents">
           내용
-          <textarea id="form-contents" name="contents" />
+          <textarea id="form-contents" name="contents" defaultValue={portfolio?.contents} />
         </label>
         <label htmlFor="form-youtube-url">
-          유튜브
-          <input type="text" id="form-youtube-url" name="youtubeId" />
+          유튜브 ID
+          <input type="text" id="form-youtube-url" name="youtubeId" defaultValue={portfolio?.youtubeId} />
         </label>
         <label htmlFor="form-redirect-url">
           이동 페이지
-          <input type="text" id="form-redirect-url" name="redirectUrl" />
+          <input type="text" id="form-redirect-url" name="redirectUrl" defaultValue={portfolio?.redirectUrl} />
         </label>
         <label htmlFor="form-image">
           이미지
           <input type="file" id="form-image" name="image" accept="image/*" />
         </label>
-        <button type="submit">글등록</button>
+        <button type="submit">{portfolio ? '글수정' : '글등록'}</button>
       </form>
     );
   }

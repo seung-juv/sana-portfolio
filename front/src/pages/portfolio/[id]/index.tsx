@@ -1,14 +1,20 @@
 import React from 'react';
+import Link from 'next/link';
+import { inject, observer } from 'mobx-react';
 import moment from 'moment';
 import { NextPageContext } from 'next';
 import classNames from '#utils/classNames';
 import styles from './Detail.module.scss';
 import { getPortfolio, IPortfolio } from '#apis/portfolios';
+import AuthStore from '#stores/AutoStore';
 
 export interface PortfolioDetailsProps {
   portfolio: IPortfolio;
+  authStore?: AuthStore;
 }
 
+@inject('authStore')
+@observer
 class PortfolioDetails extends React.Component<PortfolioDetailsProps> {
   static async getInitialProps(ctx: NextPageContext) {
     const props = {
@@ -27,13 +33,21 @@ class PortfolioDetails extends React.Component<PortfolioDetailsProps> {
   }
 
   render() {
-    const { portfolio } = this.props;
-    const { category, title, startAt, endAt, size, program, etc, contents, image, youtubeId } = portfolio;
+    const { portfolio, authStore } = this.props;
+    const { id, category, title, startAt, endAt, size, program, etc, contents, image, youtubeId } = portfolio;
+    const { isLogin } = authStore ?? {};
 
     return (
       <div className={classNames(styles['container'])}>
         <span className={classNames(styles['category'])}>{category}</span>
         <h3 className={classNames(styles['title'])}>{title}</h3>
+        {isLogin && (
+          <div className={classNames(styles['tools'])}>
+            <Link href={`/portfolio/update/${id}`}>
+              <a className={classNames(styles['link-update'])}>수정</a>
+            </Link>
+          </div>
+        )}
         <div className={classNames(styles['info-container'])}>
           <div className={classNames(styles['info'])}>
             <dl>
