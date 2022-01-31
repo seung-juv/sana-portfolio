@@ -1,0 +1,35 @@
+.container {
+  padding: 7rem 2rem;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 80%;
+  margin: 0 auto;
+  gap: 2.5rem;
+  label {
+    display: flex;
+    font-size: 2rem;
+    line-height: 3.2rem;
+    input,
+    textarea {
+      margin-top: -0.5rem;
+      margin-left: 2rem;
+      flex: 1;
+      font-size: 2rem;
+      line-height: 3.2rem;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid #cccccc;
+    }
+    textarea {
+      min-height: 25rem;
+    }
+  }
+  button[type='submit'] {
+    background-color: #333333;
+    border: 0;
+    padding: 1.2rem;
+    font-size: 2rem;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 1rem;
+  }
+}

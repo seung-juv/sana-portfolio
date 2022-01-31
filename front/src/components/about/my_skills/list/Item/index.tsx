@@ -9,12 +9,12 @@ export interface AboutMySkillListItemProps extends React.HTMLAttributes<HTMLLIEl
   percent: string;
 }
 
-interface AboutMySkillListItemState {
+interface State {
   active: boolean;
 }
 
 @autobind
-class AboutMySkillListItem extends React.Component<AboutMySkillListItemProps, AboutMySkillListItemState> {
+class AboutMySkillListItem extends React.Component<AboutMySkillListItemProps, State> {
   constructor(props: AboutMySkillListItemProps) {
     super(props);
     this.state = {

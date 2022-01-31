@@ -19,6 +19,17 @@
     letter-spacing: -0.06rem;
     margin-bottom: 6rem;
   }
+  .tools {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2.5rem;
+    .link-create {
+      color: #ffffff;
+      background-color: #333333;
+      font-size: 2.2rem;
+      padding: 1.5rem 2rem;
+    }
+  }
 }
 
 @media screen and (max-width: 425px) {

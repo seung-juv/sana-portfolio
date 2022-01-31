@@ -5,14 +5,35 @@ export class CreatePortfolioDto {
   @ApiProperty({ type: () => File })
   thumbnail: File;
 
+  @ApiProperty({ type: () => File })
+  image: File;
+
+  @ApiProperty({ type: String })
+  category: string;
+
   @ApiProperty({ type: String })
   title: string;
 
   @ApiProperty({ type: String })
-  subTitle: string;
+  description: string;
 
   @ApiProperty({ type: String })
-  url: string;
+  size: string;
+
+  @ApiProperty({ type: String })
+  program: string;
+
+  @ApiProperty({ type: String })
+  etc: string;
+
+  @ApiProperty({ type: String })
+  contents: string;
+
+  @ApiProperty({ type: String })
+  redirectUrl: string;
+
+  @ApiProperty({ type: String })
+  youtubeUrl: string;
 
   @ApiProperty({ type: Date })
   startAt: Date;
@@ -31,14 +52,35 @@ export class UpdatePorfolioDto {
   @ApiProperty({ type: () => File })
   thumbnail: File;
 
+  @ApiProperty({ type: () => File })
+  image: File;
+
+  @ApiProperty({ type: String })
+  category: string;
+
   @ApiProperty({ type: String })
   title: string;
 
   @ApiProperty({ type: String })
-  subTitle: string;
+  description: string;
 
   @ApiProperty({ type: String })
-  url: string;
+  size: string;
+
+  @ApiProperty({ type: String })
+  program: string;
+
+  @ApiProperty({ type: String })
+  etc: string;
+
+  @ApiProperty({ type: String })
+  contents: string;
+
+  @ApiProperty({ type: String })
+  redirectUrl: string;
+
+  @ApiProperty({ type: String })
+  youtubeUrl: string;
 
   @ApiProperty({ type: Date })
   startAt: Date;

@@ -28,17 +28,46 @@ export class Portfolio implements IPortfolio {
   @ApiProperty({ type: () => File })
   thumbnail: File;
 
+  @ManyToOne(() => File, (file) => file.id)
+  @JoinColumn({ name: 'image', referencedColumnName: 'id' })
+  @ApiProperty({ type: () => File })
+  image: File;
+
+  @Column({ type: 'text', nullable: false })
+  @ApiProperty({ type: String })
+  category: string;
+
   @Column({ type: 'text', nullable: false })
   @ApiProperty({ type: String })
   title: string;
 
-  @Column({ name: 'sub_title', type: 'text' })
+  @Column({ type: 'text', nullable: true })
   @ApiProperty({ type: String })
-  subTitle: string;
+  description: string;
 
   @Column({ type: 'text', nullable: true })
   @ApiProperty({ type: String })
-  url: string;
+  size: string;
+
+  @Column({ type: 'text', nullable: true })
+  @ApiProperty({ type: String })
+  program: string;
+
+  @Column({ type: 'text', nullable: true })
+  @ApiProperty({ type: String })
+  etc: string;
+
+  @Column({ type: 'text', nullable: true })
+  @ApiProperty({ type: String })
+  contents: string;
+
+  @Column({ name: 'redirect_url', type: 'text', nullable: true })
+  @ApiProperty({ type: String })
+  redirectUrl: string;
+
+  @Column({ name: 'youtube_url', type: 'text', nullable: true })
+  @ApiProperty({ type: String })
+  youtubeUrl: string;
 
   @Column({ name: 'start_at', type: 'timestamp' })
   @ApiProperty({ type: Date })

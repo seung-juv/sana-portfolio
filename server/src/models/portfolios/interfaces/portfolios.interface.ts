@@ -4,9 +4,16 @@ import { File } from '#models/files/entities/files.entity';
 export interface IPortfolio {
   user: User;
   thumbnail: File;
+  image: File;
+  category: string;
   title: string;
-  subTitle: string;
-  url: string;
+  description: string;
+  size: string;
+  program: string;
+  etc: string;
+  contents: string;
+  redirectUrl: string;
+  youtubeUrl: string;
   startAt: Date;
   endAt: Date;
   isActive: boolean;

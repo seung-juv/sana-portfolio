@@ -5,12 +5,19 @@ import { IFile } from '#apis/files';
 import { api } from '#apis/index';
 
 export interface IPortfolio {
-  id: number;
+  id: string;
   user: IUser;
   thumbnail: IFile;
+  image: IFile;
+  category: string;
   title: string;
-  subTitle: string;
-  url: string;
+  description: string;
+  size: string;
+  program: string;
+  etc: string;
+  contents: string;
+  redirectUrl: string;
+  youtubeUrl: string;
   startAt: Date;
   endAt: Date;
   isActive: boolean;
@@ -18,7 +25,31 @@ export interface IPortfolio {
   updatedAt: Date;
 }
 
+export interface CreatePortfolioDto {
+  thumbnail: IFile;
+  image: IFile;
+  category: string;
+  title: string;
+  description: string;
+  size: string;
+  program: string;
+  etc: string;
+  contents: string;
+  redirectUrl: string;
+  youtubeUrl: string;
+  startAt: Date;
+  endAt: Date;
+  isActive: boolean;
+}
+
 export function getPortfolios(config: AxiosPaginatedRequestConfig): Promise<AxiosResponse<PaginatedDto<IPortfolio>>> {
   const endpoint = '/portfolios';
   return api.get(endpoint, config);
+}
+
+export function createPortfolios(
+  createPortfolioDto: CreatePortfolioDto,
+): Promise<AxiosResponse<PaginatedDto<IPortfolio>>> {
+  const endpoint = '/portfolios';
+  return api.post(endpoint, createPortfolioDto);
 }

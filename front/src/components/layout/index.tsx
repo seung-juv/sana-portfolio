@@ -7,7 +7,7 @@ import styles from './Layout.module.scss';
 import Header from '#components/layout/header';
 
 export interface LayoutProps {
-  children: React.ReactElement;
+  children?: React.ReactElement;
   menuStore?: MenuStore;
 }
 
