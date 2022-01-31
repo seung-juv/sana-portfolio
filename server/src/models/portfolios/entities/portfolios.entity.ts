@@ -28,7 +28,7 @@ export class Portfolio implements IPortfolio {
   @ApiProperty({ type: () => File })
   thumbnail: File;
 
-  @ManyToOne(() => File, (file) => file.id)
+  @ManyToOne(() => File, (file) => file.id, { nullable: true })
   @JoinColumn({ name: 'image', referencedColumnName: 'id' })
   @ApiProperty({ type: () => File })
   image: File;
