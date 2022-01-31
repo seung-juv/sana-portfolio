@@ -143,6 +143,7 @@
       }
     }
     .main-background {
+      transform: translateY(0);
       background-image: url('/assets/images/home/m_home_background_3.png');
       &::before {
         @keyframes bounce {
