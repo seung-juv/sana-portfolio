@@ -20,7 +20,20 @@ export class PortfoliosService {
   ): Promise<PortfolioEntity> {
     return await this.portfoliosRepository.createEntity(
       { user, ...createPortfolioDto },
-      ['user', 'thumbnail', 'image'],
+      [
+        'user',
+        'thumbnail',
+        'image1',
+        'image2',
+        'image3',
+        'image4',
+        'image5',
+        'image6',
+        'image7',
+        'image8',
+        'image9',
+        'image10',
+      ],
     );
   }
 
@@ -58,7 +71,20 @@ export class PortfoliosService {
     return await this.portfoliosRepository.updateEntity(
       user,
       updatePorfolioDto,
-      ['user', 'thumbnail', 'image'],
+      [
+        'user',
+        'thumbnail',
+        'image1',
+        'image2',
+        'image3',
+        'image4',
+        'image5',
+        'image6',
+        'image7',
+        'image8',
+        'image9',
+        'image10',
+      ],
     );
   }
 
