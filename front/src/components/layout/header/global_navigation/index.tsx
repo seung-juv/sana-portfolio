@@ -18,36 +18,36 @@ const Routes = [
   { key: 'route-contact', route: '/contact', name: 'CONTACT', title: 'Go to Contact Page' },
 ];
 
-const Socials = [
-  {
-    key: 'social-insta',
-    route: '/',
-    alt: 'insta',
-    icon: '/assets/icons/icon_insta.png',
-    title: "Go to Sana's Instagram",
-  },
-  {
-    key: 'social-kakao',
-    route: '/',
-    alt: 'kakao',
-    icon: '/assets/icons/icon_kakao.png',
-    title: "Go to Sana's Kakao",
-  },
-  {
-    key: 'social-blog',
-    route: '/',
-    alt: 'blog',
-    icon: '/assets/icons/icon_blog.png',
-    title: "Go to Sana's Blog",
-  },
-  {
-    key: 'social-git',
-    route: '/',
-    alt: 'git',
-    icon: '/assets/icons/icon_git.png',
-    title: "Go to Sana's Github",
-  },
-];
+// const Socials = [
+//   {
+//     key: 'social-insta',
+//     route: '/',
+//     alt: 'insta',
+//     icon: '/assets/icons/icon_insta.png',
+//     title: "Go to Sana's Instagram",
+//   },
+//   {
+//     key: 'social-kakao',
+//     route: '/',
+//     alt: 'kakao',
+//     icon: '/assets/icons/icon_kakao.png',
+//     title: "Go to Sana's Kakao",
+//   },
+//   {
+//     key: 'social-blog',
+//     route: '/',
+//     alt: 'blog',
+//     icon: '/assets/icons/icon_blog.png',
+//     title: "Go to Sana's Blog",
+//   },
+//   {
+//     key: 'social-git',
+//     route: '/',
+//     alt: 'git',
+//     icon: '/assets/icons/icon_git.png',
+//     title: "Go to Sana's Github",
+//   },
+// ];
 
 @inject('menuStore')
 @observer
@@ -129,19 +129,19 @@ class GlobalNavigation extends React.Component<GlobalNavigationProps> {
               );
             })}
           </ul>
-          <ul className={classNames(styles['social-lists'])}>
-            {Socials.map(({ key, route, title, alt, icon }) => {
-              return (
-                <li key={key} className={classNames(styles['social-list'])}>
-                  <Link href={route}>
-                    <a title={title} target="_blank">
-                      <img src={icon} alt={alt} />
-                    </a>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+          {/*<ul className={classNames(styles['social-lists'])}>*/}
+          {/*  {Socials.map(({ key, route, title, alt, icon }) => {*/}
+          {/*    return (*/}
+          {/*      <li key={key} className={classNames(styles['social-list'])}>*/}
+          {/*        <Link href={route}>*/}
+          {/*          <a title={title} target="_blank">*/}
+          {/*            <img src={icon} alt={alt} />*/}
+          {/*          </a>*/}
+          {/*        </Link>*/}
+          {/*      </li>*/}
+          {/*    );*/}
+          {/*  })}*/}
+          {/*</ul>*/}
         </nav>
         <div
           role="button"
