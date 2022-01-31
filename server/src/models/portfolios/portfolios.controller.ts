@@ -1,5 +1,4 @@
 import { PaginationDto, PaginatedDto } from './../../common/dtos/paginated.dto';
-import { Portfolio } from './entities/portfolios.entity';
 import { CreatePortfolioDto, UpdatePorfolioDto } from './dto/portfolios.dto';
 import {
   ApiQuery,
@@ -15,6 +14,7 @@ import {
   Controller,
   Delete,
   Get,
+  Param,
   Post,
   Put,
   Query,
@@ -68,7 +68,7 @@ export class PortfoliosController {
     type: PortfolioEntity,
   })
   @ApiQuery({ name: 'id', type: 'string' })
-  async get(@Query('id') id: string): Promise<PortfolioEntity> {
+  async get(@Param('id') id: string): Promise<PortfolioEntity> {
     return this.portfoliosService.get(id, ['user', 'thumbnail']);
   }
 
