@@ -43,10 +43,11 @@ class PortfolioListItem extends React.Component<PortflioListItemProps> {
   }
 
   render() {
-    const { id, htmlId, title, subTitle, thumbnail, startAt, endAt, url, createdAt, updatedAt, ...props } = this.props;
+    const { id, htmlId, title, description, thumbnail, startAt, endAt, redirectUrl, createdAt, updatedAt, ...props } =
+      this.props;
 
     return (
-      <Link href={url ?? `/portfolio/${id}`}>
+      <Link href={redirectUrl ?? `/portfolio/${id}`}>
         <a
           ref={this.listItemRef}
           id={htmlId}
@@ -61,7 +62,7 @@ class PortfolioListItem extends React.Component<PortflioListItemProps> {
                 ? moment(startAt).format('YYYY.MM')
                 : `${moment(startAt).format('YYYY.MM')} ~ ${moment(endAt).format('YYYY.MM')}`}
               <br />
-              {subTitle}
+              {description}
             </p>
           </div>
         </a>
