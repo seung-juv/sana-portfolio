@@ -111,6 +111,24 @@
   }
 }
 
+@media screen and (max-width: 1440px) {
+  .container {
+    padding: 7.5rem 2.5rem 0;
+    .main-title-container {
+      .main-title {
+        width: 45rem;
+      }
+    }
+    .main-background {
+      height: 75%;
+      transform: translateY(10rem);
+    }
+    .view-portfolio {
+      bottom: 7.5rem;
+    }
+  }
+}
+
 @media screen and (max-width: 425px) {
   .container {
     padding: 8rem 2.5rem 0;
