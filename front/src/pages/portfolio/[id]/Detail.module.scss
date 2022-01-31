@@ -78,3 +78,42 @@
     }
   }
 }
+
+@media screen and (max-width: 425px) {
+  .container {
+    width: 100%;
+    .category {
+      font-size: 3rem;
+    }
+    .title {
+      font-size: 3rem;
+    }
+    .info-container {
+      flex-flow: column nowrap;
+      gap: 2.5rem;
+      .info {
+        flex: auto;
+        dl {
+          &:not(:last-child) {
+            margin-bottom: 1rem;
+          }
+          dt {
+            font-size: 1.6rem;
+            line-height: 3rem;
+          }
+          dd {
+            font-size: 1.6rem;
+            line-height: 3rem;
+          }
+        }
+      }
+      .contents {
+        font-size: 1.6rem;
+        line-height: 3rem;
+      }
+    }
+    .image-container {
+      width: 100%;
+    }
+  }
+}
