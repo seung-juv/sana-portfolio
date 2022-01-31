@@ -27,10 +27,12 @@ class PortfolioCreate extends React.Component<PortfolioCreateProps, State> {
 
     const { id } = ctx.query;
 
-    const { data: responseData } = await getPortfolio(String(id));
+    if (typeof id === 'string') {
+      const { data: responseData } = await getPortfolio(id);
 
-    if (responseData) {
-      props.portfolio = responseData;
+      if (responseData) {
+        props.portfolio = responseData;
+      }
     }
 
     return props;
