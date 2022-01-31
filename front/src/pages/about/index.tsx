@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import { isMobile } from 'react-device-detect';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Mousewheel, A11y } from 'swiper';
 import 'swiper/css';
@@ -7,7 +8,6 @@ import 'swiper/css';
 import classNames from '#utils/classNames';
 import styles from './About.module.scss';
 import AboutMySkillsList from '#components/about/my_skills/list';
-import { isMobile } from 'react-device-detect';
 
 SwiperCore.use([Mousewheel, A11y]);
 
