@@ -1,4 +1,5 @@
 import React from 'react';
+import { isMobile } from 'react-device-detect';
 import gsap from 'gsap';
 import { inject, observer } from 'mobx-react';
 import MenuStore from '#stores/MenuStore';
@@ -42,15 +43,12 @@ class Menu extends React.Component<MenuProps> {
   }
 
   handleMenuAnimation(isMenuOpen: boolean) {
-    const gap =
-      (this.menuRef.current && Number(window.getComputedStyle(this.menuRef.current).gap?.replace('px', ''))) ?? 0;
-
     if (isMenuOpen) {
       this.timeline1
         .clear()
         .to(this.menuSpan1Ref.current, {
           duration: 0.1,
-          translateY: gap + (this.menuSpan1Ref.current?.clientHeight ?? 0),
+          translateY: isMobile ? 7 : 14,
         })
         .to(this.menuSpan1Ref.current, {
           delay: 0.15,
@@ -65,7 +63,7 @@ class Menu extends React.Component<MenuProps> {
         .clear()
         .to(this.menuSpan3Ref.current, {
           duration: 0.1,
-          translateY: -(gap + (this.menuSpan3Ref.current?.clientHeight ?? 0)),
+          translateY: isMobile ? -7 : -14,
         })
         .to(this.menuSpan3Ref.current, {
           delay: 0.15,
