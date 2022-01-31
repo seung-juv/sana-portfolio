@@ -69,7 +69,7 @@ export class PortfoliosController {
   })
   @ApiQuery({ name: 'id', type: 'string' })
   async get(@Param('id') id: string): Promise<PortfolioEntity> {
-    return this.portfoliosService.get(id, ['user', 'thumbnail']);
+    return this.portfoliosService.get(id, ['user', 'thumbnail', 'image']);
   }
 
   @Put(':id')

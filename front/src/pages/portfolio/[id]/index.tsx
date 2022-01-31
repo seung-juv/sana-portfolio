@@ -1,8 +1,67 @@
 import React from 'react';
+import moment from 'moment';
+import { NextPageContext } from 'next';
+import classNames from '#utils/classNames';
+import styles from './Detail.module.scss';
+import { getPortfolio, IPortfolio } from '#apis/portfolios';
 
-class PortfolioDetails extends React.Component {
+export interface PortfolioDetailsProps {
+  portfolio: IPortfolio;
+}
+
+class PortfolioDetails extends React.Component<PortfolioDetailsProps> {
+  static async getInitialProps(ctx: NextPageContext) {
+    const props = {
+      portfolio: null,
+    } as { portfolio: null | IPortfolio };
+
+    const { id } = ctx.query;
+
+    const { data: responseData } = await getPortfolio(String(id));
+
+    if (responseData) {
+      props.portfolio = responseData;
+    }
+
+    return props;
+  }
+
   render() {
-    return <div />;
+    const { portfolio } = this.props;
+    const { category, title, startAt, endAt, size, program, etc, contents, image } = portfolio;
+
+    return (
+      <div className={classNames(styles['container'])}>
+        <span className={classNames(styles['category'])}>{category}</span>
+        <h3 className={classNames(styles['title'])}>{title}</h3>
+        <div className={classNames(styles['info-container'])}>
+          <div className={classNames(styles['info'])}>
+            <dl>
+              <dt>제작기간</dt>
+              <dd>
+                {startAt === endAt
+                  ? moment(startAt).format('YYYY. MM.')
+                  : `${moment(startAt).format('YYYY. MM.')} ~ ${moment(endAt).format('YYYY. MM.')}`}
+              </dd>
+            </dl>
+            <dl>
+              <dt>사이즈</dt>
+              <dd>{size}</dd>
+            </dl>
+            <dl>
+              <dt>프로그램</dt>
+              <dd>{program}</dd>
+            </dl>
+            <dl>
+              <dt>기타사항</dt>
+              <dd>{etc}</dd>
+            </dl>
+          </div>
+          <pre className={classNames(styles['contents'])}>{contents}</pre>
+        </div>
+        <div className={classNames(styles['image-container'])}>{image && <img src={image.uri} alt={title} />}</div>
+      </div>
+    );
   }
 }
 
