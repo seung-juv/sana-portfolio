@@ -34,6 +34,9 @@ export class PortfoliosService {
         pageable: true,
         ...paginationDto,
       },
+      order: {
+        startAt: 'DESC',
+      },
       relations,
     });
   }
