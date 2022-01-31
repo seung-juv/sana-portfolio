@@ -8,7 +8,16 @@ export interface IPortfolio {
   id: string;
   user: IUser;
   thumbnail: IFile;
-  image: IFile;
+  image1: IFile;
+  image2: IFile;
+  image3: IFile;
+  image4: IFile;
+  image5: IFile;
+  image6: IFile;
+  image7: IFile;
+  image8: IFile;
+  image9: IFile;
+  image10: IFile;
   category: string;
   title: string;
   description: string;

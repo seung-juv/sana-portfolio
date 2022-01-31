@@ -34,7 +34,28 @@ class PortfolioDetails extends React.Component<PortfolioDetailsProps> {
 
   render() {
     const { portfolio, authStore } = this.props;
-    const { id, category, title, startAt, endAt, size, program, etc, contents, image, youtubeId } = portfolio;
+    const {
+      id,
+      category,
+      title,
+      startAt,
+      endAt,
+      size,
+      program,
+      etc,
+      contents,
+      image1,
+      image2,
+      image3,
+      image4,
+      image5,
+      image6,
+      image7,
+      image8,
+      image9,
+      image10,
+      youtubeId,
+    } = portfolio;
     const { isLogin } = authStore ?? {};
 
     return (
@@ -83,7 +104,16 @@ class PortfolioDetails extends React.Component<PortfolioDetailsProps> {
               allowFullScreen
             />
           )}
-          {image && <img src={image.uri} alt={title} />}
+          {image1 && <img src={image1.uri} alt={title} />}
+          {image2 && <img src={image2.uri} alt={title} />}
+          {image3 && <img src={image3.uri} alt={title} />}
+          {image4 && <img src={image4.uri} alt={title} />}
+          {image5 && <img src={image5.uri} alt={title} />}
+          {image6 && <img src={image6.uri} alt={title} />}
+          {image7 && <img src={image7.uri} alt={title} />}
+          {image8 && <img src={image8.uri} alt={title} />}
+          {image9 && <img src={image9.uri} alt={title} />}
+          {image10 && <img src={image10.uri} alt={title} />}
         </div>
       </div>
     );
