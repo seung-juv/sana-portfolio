@@ -73,6 +73,7 @@
       text-transform: uppercase;
       letter-spacing: 0.7rem;
       margin-bottom: 1rem;
+      word-break: keep-all;
     }
     .contents {
       font-size: 1.8rem;
@@ -85,6 +86,7 @@
       transition-duration: 0.3s;
       transition-timing-function: ease-out;
       transition-delay: 0.05s;
+      word-break: keep-all;
     }
   }
 }
