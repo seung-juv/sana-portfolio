@@ -88,7 +88,7 @@ export class PortfoliosController {
   @ApiBearerAuth()
   @Delete(':id')
   @ApiQuery({ name: 'id', type: 'string' })
-  async delete(@Query('id') id: string, @Req() req): Promise<boolean> {
+  async delete(@Param('id') id: string, @Req() req): Promise<boolean> {
     return this.portfoliosService.delete(id, req.user);
   }
 }

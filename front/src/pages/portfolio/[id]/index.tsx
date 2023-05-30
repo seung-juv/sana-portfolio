@@ -3,14 +3,17 @@ import Link from 'next/link';
 import { inject, observer } from 'mobx-react';
 import moment from 'moment';
 import { NextPageContext } from 'next';
+import { NextRouter } from 'next/router';
 import classNames from '#utils/classNames';
 import styles from './Detail.module.scss';
 import { getPortfolio, IPortfolio } from '#apis/portfolios';
 import AuthStore from '#stores/AutoStore';
+import { api } from '#apis/index';
 
 export interface PortfolioDetailsProps {
   portfolio: IPortfolio;
   authStore?: AuthStore;
+  router: NextRouter;
 }
 
 @inject('authStore')
@@ -33,7 +36,7 @@ class PortfolioDetails extends React.Component<PortfolioDetailsProps> {
   }
 
   render() {
-    const { portfolio, authStore } = this.props;
+    const { portfolio, authStore, router } = this.props;
     const {
       id,
       category,
@@ -67,6 +70,19 @@ class PortfolioDetails extends React.Component<PortfolioDetailsProps> {
             <Link href={`/portfolio/update/${id}`}>
               <a className={classNames(styles['link-update'])}>수정</a>
             </Link>
+            <button
+              type="button"
+              className={classNames(styles['button-delete'])}
+              onClick={(event) => {
+                event.preventDefault();
+                api.delete(`/api/portfolios/${id}`).then(() => {
+                  alert('포트폴리오가 삭제되었습니다.');
+                  router.push('/portfolio');
+                });
+              }}
+            >
+              삭제
+            </button>
           </div>
         )}
         <div className={classNames(styles['info-container'])}>

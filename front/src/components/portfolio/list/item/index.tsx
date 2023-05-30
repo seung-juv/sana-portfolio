@@ -52,7 +52,6 @@ class PortfolioListItem extends React.Component<PortflioListItemProps> {
           id={htmlId}
           className={classNames(styles['wrapper'])}
           style={{ backgroundImage: `url(${thumbnail})` }}
-          {...props}
         >
           <div className={classNames(styles['container'])}>
             <b className={classNames(styles['title'])}>{title}</b>
