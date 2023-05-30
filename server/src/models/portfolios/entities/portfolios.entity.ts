@@ -19,40 +19,40 @@ export class Portfolio implements IPortfolio {
   @ManyToOne(() => User, (user) => user.id, { nullable: false })
   user: User;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   thumbnail: string;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   image: string;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   image1: string;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   image2: string;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   image3: string;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   image4: string;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   image5: string;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   image6: string;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   image7: string;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   image8: string;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   image9: string;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   image10: string;
 
   @Column({ type: 'text', nullable: false })
