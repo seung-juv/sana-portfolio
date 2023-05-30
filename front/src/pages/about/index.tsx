@@ -138,9 +138,9 @@ class About extends React.Component {
                     <h3 className={classNames(styles['title'])}>MY SKILLS</h3>
                     <AboutMySkillsList
                       items={[
-                        { key: 'skill-AI', name: 'AI', percent: '98%' },
-                        { key: 'skill-PR', name: 'PR', percent: '82%' },
-                        { key: 'skill-PS', name: 'PS', percent: '80%' },
+                        { key: 'skill-PS', name: 'PS', percent: '98%' },
+                        { key: 'skill-AI', name: 'AI', percent: '82%' },
+                        { key: 'skill-PR', name: 'PR', percent: '80%' },
                         { key: 'skill-HTML CSS', name: 'HTML CSS', percent: '80%' },
                         { key: 'skill-JS', name: 'JS', percent: '20%' },
                         { key: 'skill-XD', name: 'XD', percent: '65%' },
