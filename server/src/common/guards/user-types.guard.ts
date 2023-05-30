@@ -29,7 +29,7 @@ export class UserTypesGuard implements CanActivate {
 
     const userTypeRaw = await this.userTypesService.get(userType);
 
-    if (!user || !user.userType || userTypeRaw.level > user.userType.level) {
+    if (!user || !user.userType || userTypeRaw.level >= user.userType.level) {
       throw new HttpException('Permission Denied', HttpStatus.FORBIDDEN);
     }
 
