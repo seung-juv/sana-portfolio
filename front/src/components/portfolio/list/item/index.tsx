@@ -43,7 +43,7 @@ class PortfolioListItem extends React.Component<PortflioListItemProps> {
   }
 
   render() {
-    const { id, htmlId, title, description, thumbnail, startAt, endAt, redirectUrl, ...props } = this.props;
+    const { id, htmlId, title, description, thumbnail, startAt, endAt, redirectUrl } = this.props;
 
     return (
       <Link href={redirectUrl || `/portfolio/${id}`}>
