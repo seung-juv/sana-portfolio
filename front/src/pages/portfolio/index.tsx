@@ -29,7 +29,7 @@ function Portfolio({ authStore }: PortfolioProps): React.ReactElement {
     <div className={classNames(styles['container'])}>
       <h2 className={classNames(styles['title'])}>SANHA&apos;S PORTFOLIO !</h2>
       <p className={classNames(styles['sub-title'])}>
-        2019 - 2022 포트폴리오. 여러가지 다채로운 디자인을 확인해주세요!
+        2019 - 현재 포트폴리오. 여러가지 다채로운 디자인을 확인해주세요!
         <br />
         웹디자인/편집/기획/영상/UI/UX 까지 실무 및 개인 작업 모음입니다. 감사합니다.
       </p>
