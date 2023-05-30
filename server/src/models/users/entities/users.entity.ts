@@ -32,7 +32,7 @@ export class User implements IUser {
   })
   accountAccessFailCount: number;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   profile: string;
 
   @ManyToOne(() => UserType, (userType) => userType.userType, {

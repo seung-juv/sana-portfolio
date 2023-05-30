@@ -5,7 +5,7 @@ import { LocalAuthGuard } from '#common/guards/local-auth.guard';
 import { LoginDto, LoginResponseDto } from './dto/login.dto';
 
 @ApiTags('auth')
-@Controller('auth')
+@Controller('api/auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
 
