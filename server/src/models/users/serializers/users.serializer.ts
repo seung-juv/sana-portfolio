@@ -1,7 +1,6 @@
 import { Expose } from 'class-transformer';
 import { IUser } from '../interfaces/users.interface';
 import { ModelEntity } from '#common/serializers/model.serializer';
-import { File } from '#models/files/entities/files.entity';
 import { UserType } from '#models/user-types/entities/user-types.entity';
 import { ApiProperty } from '@nestjs/swagger';
 
@@ -26,8 +25,8 @@ export class UserEntity extends ModelEntity implements IUser {
   @Expose({ groups: ['user.password'] })
   password: string;
 
-  @ApiProperty({ type: () => File })
-  profile: File;
+  @ApiProperty({ type: String })
+  profile: string;
 
   @ApiProperty({ type: () => UserType })
   userType: UserType;

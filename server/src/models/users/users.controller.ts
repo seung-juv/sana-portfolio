@@ -23,7 +23,7 @@ import {
 import { CreateUserDto } from './dtos/users.dto';
 
 @ApiTags('users')
-@Controller('users')
+@Controller('api/users')
 @SerializeOptions({
   groups: defaultUserGroupsForSerializing,
 })

@@ -104,16 +104,16 @@ class PortfolioDetails extends React.Component<PortfolioDetailsProps> {
               allowFullScreen
             />
           )}
-          {image1 && <img src={image1.uri} alt={title} />}
-          {image2 && <img src={image2.uri} alt={title} />}
-          {image3 && <img src={image3.uri} alt={title} />}
-          {image4 && <img src={image4.uri} alt={title} />}
-          {image5 && <img src={image5.uri} alt={title} />}
-          {image6 && <img src={image6.uri} alt={title} />}
-          {image7 && <img src={image7.uri} alt={title} />}
-          {image8 && <img src={image8.uri} alt={title} />}
-          {image9 && <img src={image9.uri} alt={title} />}
-          {image10 && <img src={image10.uri} alt={title} />}
+          {image1 && <img src={image1} alt={title} />}
+          {image2 && <img src={image2} alt={title} />}
+          {image3 && <img src={image3} alt={title} />}
+          {image4 && <img src={image4} alt={title} />}
+          {image5 && <img src={image5} alt={title} />}
+          {image6 && <img src={image6} alt={title} />}
+          {image7 && <img src={image7} alt={title} />}
+          {image8 && <img src={image8} alt={title} />}
+          {image9 && <img src={image9} alt={title} />}
+          {image10 && <img src={image10} alt={title} />}
         </div>
       </div>
     );

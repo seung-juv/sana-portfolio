@@ -6,8 +6,6 @@ import { AppService } from './app.service';
 import { AppController } from './app.controller';
 import { AppConfigModule } from '#config/app/config.module';
 import { PostgreDatabaseProviderModule } from '#providers/database/postgres/provider.module';
-import { FilesController } from '#models/files/files.controller';
-import { FilesModule } from '#models/files/files.module';
 import { AuthModule } from '#authentication/auth.module';
 import { AuthController } from '#authentication/auth.controller';
 import { UserTypesModule } from '#models/user-types/user-types.module';
@@ -28,7 +26,6 @@ import { ConfigsController } from '#models/configs/configs.controller';
   imports: [
     AppConfigModule,
     PostgreDatabaseProviderModule,
-    FilesModule,
     AuthModule,
     UserTypesModule,
     UsersModule,
@@ -37,7 +34,6 @@ import { ConfigsController } from '#models/configs/configs.controller';
   ],
   controllers: [
     AppController,
-    FilesController,
     AuthController,
     UserTypesController,
     UsersController,

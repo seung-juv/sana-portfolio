@@ -43,20 +43,7 @@ class PortfolioListItem extends React.Component<PortflioListItemProps> {
   }
 
   render() {
-    const {
-      id,
-      htmlId,
-      title,
-      description,
-      thumbnail,
-      startAt,
-      endAt,
-      redirectUrl,
-      createdAt,
-      updatedAt,
-      youtubeId,
-      ...props
-    } = this.props;
+    const { id, htmlId, title, description, thumbnail, startAt, endAt, redirectUrl, ...props } = this.props;
 
     return (
       <Link href={redirectUrl || `/portfolio/${id}`}>
@@ -64,7 +51,7 @@ class PortfolioListItem extends React.Component<PortflioListItemProps> {
           ref={this.listItemRef}
           id={htmlId}
           className={classNames(styles['wrapper'])}
-          style={{ backgroundImage: `url(${thumbnail.uri})` }}
+          style={{ backgroundImage: `url(${thumbnail})` }}
           {...props}
         >
           <div className={classNames(styles['container'])}>

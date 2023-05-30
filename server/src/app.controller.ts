@@ -18,7 +18,7 @@ import {
 } from '#models/users/serializers/users.serializer';
 import { UserTypes } from '#common/decorators/metadata/user-types.decorator';
 
-@Controller()
+@Controller('api')
 @SerializeOptions({
   groups: extendedUserGroupsForSerializing,
 })

@@ -15,6 +15,6 @@ export function postAuthLogin(
   data: PostAuthLoginRequestBody,
   config?: AxiosRequestConfig,
 ): Promise<AxiosResponse<Token>> {
-  const endpoint = '/auth/login';
+  const endpoint = '/api/auth/login';
   return api.post(endpoint, data, config);
 }

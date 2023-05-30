@@ -24,7 +24,7 @@ import {
 import { UserTypes } from '#common/decorators/metadata/user-types.decorator';
 
 @ApiTags('configs')
-@Controller('configs')
+@Controller('api/configs')
 @SerializeOptions({
   groups: defaultConfigGroupsForSerializing,
 })

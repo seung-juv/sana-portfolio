@@ -8,7 +8,6 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { IUser } from '../interfaces/users.interface';
-import { File } from '#models/files/entities/files.entity';
 import { UserType } from '#models/user-types/entities/user-types.entity';
 
 @Entity({ name: 'users' })
@@ -33,9 +32,8 @@ export class User implements IUser {
   })
   accountAccessFailCount: number;
 
-  @ManyToOne(() => File, (file) => file.id)
-  @JoinColumn({ name: 'profile', referencedColumnName: 'id' })
-  profile: File;
+  @Column({ type: 'text' })
+  profile: string;
 
   @ManyToOne(() => UserType, (userType) => userType.userType, {
     nullable: false,

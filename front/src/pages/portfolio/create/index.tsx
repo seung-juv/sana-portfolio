@@ -118,47 +118,47 @@ class PortfolioCreate extends React.Component<PortfolioCreateProps, State> {
 
       if (thumbnail.files[0]) {
         const { data: responseData } = await uploadFiles(thumbnail.files[0]);
-        requestBody.thumbnail = responseData;
+        requestBody.thumbnail = responseData.uri;
       }
       if (image1.files[0]) {
         const { data: responseData } = await uploadFiles(image1.files[0]);
-        requestBody.image1 = responseData;
+        requestBody.image1 = responseData.uri;
       }
       if (image2.files[0]) {
         const { data: responseData } = await uploadFiles(image2.files[0]);
-        requestBody.image2 = responseData;
+        requestBody.image2 = responseData.uri;
       }
       if (image3.files[0]) {
         const { data: responseData } = await uploadFiles(image3.files[0]);
-        requestBody.image3 = responseData;
+        requestBody.image3 = responseData.uri;
       }
       if (image4.files[0]) {
         const { data: responseData } = await uploadFiles(image4.files[0]);
-        requestBody.image4 = responseData;
+        requestBody.image4 = responseData.uri;
       }
       if (image5.files[0]) {
         const { data: responseData } = await uploadFiles(image5.files[0]);
-        requestBody.image5 = responseData;
+        requestBody.image5 = responseData.uri;
       }
       if (image6.files[0]) {
         const { data: responseData } = await uploadFiles(image6.files[0]);
-        requestBody.image6 = responseData;
+        requestBody.image6 = responseData.uri;
       }
       if (image7.files[0]) {
         const { data: responseData } = await uploadFiles(image7.files[0]);
-        requestBody.image7 = responseData;
+        requestBody.image7 = responseData.uri;
       }
       if (image8.files[0]) {
         const { data: responseData } = await uploadFiles(image8.files[0]);
-        requestBody.image8 = responseData;
+        requestBody.image8 = responseData.uri;
       }
       if (image9.files[0]) {
         const { data: responseData } = await uploadFiles(image9.files[0]);
-        requestBody.image9 = responseData;
+        requestBody.image9 = responseData.uri;
       }
       if (image10.files[0]) {
         const { data: responseData } = await uploadFiles(image10.files[0]);
-        requestBody.image10 = responseData;
+        requestBody.image10 = responseData.uri;
       }
 
       if (typeof id === 'string') {

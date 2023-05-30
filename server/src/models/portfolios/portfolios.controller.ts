@@ -29,7 +29,7 @@ import {
 import { UserTypes } from '#common/decorators/metadata/user-types.decorator';
 
 @ApiTags('portfolios')
-@Controller('portfolios')
+@Controller('api/portfolios')
 @SerializeOptions({
   groups: defaultPortfolioGroupsForSerializing,
 })
@@ -59,7 +59,7 @@ export class PortfoliosController {
   async getAll(
     @Query() paginationDto: PaginationDto,
   ): Promise<PaginatedDto<PortfolioEntity>> {
-    return this.portfoliosService.getAll(paginationDto, ['user', 'thumbnail']);
+    return this.portfoliosService.getAll(paginationDto, ['user']);
   }
 
   @Get(':id')
@@ -69,20 +69,7 @@ export class PortfoliosController {
   })
   @ApiQuery({ name: 'id', type: 'string' })
   async get(@Param('id') id: string): Promise<PortfolioEntity> {
-    return this.portfoliosService.get(id, [
-      'user',
-      'thumbnail',
-      'image1',
-      'image2',
-      'image3',
-      'image4',
-      'image5',
-      'image6',
-      'image7',
-      'image8',
-      'image9',
-      'image10',
-    ]);
+    return this.portfoliosService.get(id, ['user']);
   }
 
   @Put(':id')

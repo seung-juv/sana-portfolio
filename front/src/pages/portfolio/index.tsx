@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import { NextRouter } from 'next/router';
 import { inject, observer } from 'mobx-react';
 import usePagination from '#hooks/usePagination';
 import styles from './Portfolio.module.scss';
@@ -10,7 +9,6 @@ import { getPortfolios, IPortfolio } from '#apis/portfolios';
 import AuthStore from '#stores/AutoStore';
 
 export interface PortfolioProps {
-  router: NextRouter;
   authStore?: AuthStore;
 }
 

@@ -15,7 +15,7 @@ async function bootstrap() {
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('openapi', app, document);
   // Get app config for cors settings and starting the app.
   const appConfig = app.get<AppConfigService>(AppConfigService);
   app.useGlobalFilters(new HttpExceptionFilter());

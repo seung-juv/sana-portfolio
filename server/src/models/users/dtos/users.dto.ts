@@ -1,7 +1,6 @@
 import { FindOneOptions } from 'typeorm';
 import { User } from '#models/users/entities/users.entity';
 import { ApiProperty } from '@nestjs/swagger';
-import { File } from '#models/files/entities/files.entity';
 
 export class CreateUserDto {
   @ApiProperty({ type: String })
@@ -13,13 +12,13 @@ export class CreateUserDto {
   @ApiProperty({ type: String })
   password: string;
 
-  @ApiProperty({ type: () => File })
-  profile: File;
+  @ApiProperty({ type: String })
+  profile: string;
 }
 
 export class UpdateUserDto {
-  @ApiProperty({ type: () => File })
-  profile: File;
+  @ApiProperty({ type: String })
+  profile: string;
 }
 
 export type UserFindOneRequestBody =

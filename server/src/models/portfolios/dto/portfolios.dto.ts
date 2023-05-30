@@ -1,42 +1,41 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { File } from '#models/files/entities/files.entity';
 
 export class CreatePortfolioDto {
-  @ApiProperty({ type: () => File })
-  thumbnail: File;
+  @ApiProperty({ type: String })
+  thumbnail: string;
 
-  @ApiProperty({ type: () => File })
-  image: File;
+  @ApiProperty({ type: String })
+  image: string;
 
-  @ApiProperty({ type: () => File })
-  image1: File;
+  @ApiProperty({ type: String })
+  image1: string;
 
-  @ApiProperty({ type: () => File })
-  image2: File;
+  @ApiProperty({ type: String })
+  image2: string;
 
-  @ApiProperty({ type: () => File })
-  image3: File;
+  @ApiProperty({ type: String })
+  image3: string;
 
-  @ApiProperty({ type: () => File })
-  image4: File;
+  @ApiProperty({ type: String })
+  image4: string;
 
-  @ApiProperty({ type: () => File })
-  image5: File;
+  @ApiProperty({ type: String })
+  image5: string;
 
-  @ApiProperty({ type: () => File })
-  image6: File;
+  @ApiProperty({ type: String })
+  image6: string;
 
-  @ApiProperty({ type: () => File })
-  image7: File;
+  @ApiProperty({ type: String })
+  image7: string;
 
-  @ApiProperty({ type: () => File })
-  image8: File;
+  @ApiProperty({ type: String })
+  image8: string;
 
-  @ApiProperty({ type: () => File })
-  image9: File;
+  @ApiProperty({ type: String })
+  image9: string;
 
-  @ApiProperty({ type: () => File })
-  image10: File;
+  @ApiProperty({ type: String })
+  image10: string;
 
   @ApiProperty({ type: String })
   category: string;
@@ -79,41 +78,41 @@ export class CreatePortfolioDto {
 }
 
 export class UpdatePorfolioDto {
-  @ApiProperty({ type: () => File })
-  thumbnail: File;
+  @ApiProperty({ type: String })
+  thumbnail: string;
 
-  @ApiProperty({ type: () => File })
-  image: File;
+  @ApiProperty({ type: String })
+  image: string;
 
-  @ApiProperty({ type: () => File })
-  image1: File;
+  @ApiProperty({ type: String })
+  image1: string;
 
-  @ApiProperty({ type: () => File })
-  image2: File;
+  @ApiProperty({ type: String })
+  image2: string;
 
-  @ApiProperty({ type: () => File })
-  image3: File;
+  @ApiProperty({ type: String })
+  image3: string;
 
-  @ApiProperty({ type: () => File })
-  image4: File;
+  @ApiProperty({ type: String })
+  image4: string;
 
-  @ApiProperty({ type: () => File })
-  image5: File;
+  @ApiProperty({ type: String })
+  image5: string;
 
-  @ApiProperty({ type: () => File })
-  image6: File;
+  @ApiProperty({ type: String })
+  image6: string;
 
-  @ApiProperty({ type: () => File })
-  image7: File;
+  @ApiProperty({ type: String })
+  image7: string;
 
-  @ApiProperty({ type: () => File })
-  image8: File;
+  @ApiProperty({ type: String })
+  image8: string;
 
-  @ApiProperty({ type: () => File })
-  image9: File;
+  @ApiProperty({ type: String })
+  image9: string;
 
-  @ApiProperty({ type: () => File })
-  image10: File;
+  @ApiProperty({ type: String })
+  image10: string;
 
   @ApiProperty({ type: String })
   category: string;

@@ -24,7 +24,7 @@ import {
 } from './serializers/user-types.serializer';
 
 @ApiTags('user-types')
-@Controller('user-types')
+@Controller('api/user-types')
 @SerializeOptions({
   groups: defaultUserTyperoupsForSerializing,
 })
