@@ -25,7 +25,7 @@ export class UsersService {
 
   async get(
     id: string,
-    relations: string[] = ['profile', 'userType'],
+    relations: string[] = ['userType'],
     throwsException = true,
   ): Promise<UserEntity | null> {
     return await this.usersRepository.get(id, relations, throwsException);
@@ -67,13 +67,13 @@ export class UsersService {
 
     return await this.usersRepository.createEntity(
       { ...createUserDto, userType },
-      ['profile', 'userType'],
+      ['userType'],
     );
   }
 
   async getAll(
     paginationDto: PaginationDto,
-    relations: string[] = ['profile', 'userType'],
+    relations: string[] = ['userType'],
   ): Promise<PaginatedDto<UserEntity>> {
     return await this.usersRepository.getAll({
       where: { isActive: true },
@@ -93,7 +93,6 @@ export class UsersService {
     }
 
     return await this.usersRepository.updateEntity(user, updateUserDto, [
-      'profile',
       'userType',
     ]);
   }
