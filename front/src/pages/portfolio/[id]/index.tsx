@@ -6,7 +6,7 @@ import { NextPageContext } from 'next';
 import { NextRouter } from 'next/router';
 import classNames from '#utils/classNames';
 import styles from './Detail.module.scss';
-import { getPortfolio, IPortfolio } from '#apis/portfolios';
+import { getServerPortfolio, IPortfolio } from '#apis/portfolios';
 import AuthStore from '#stores/AutoStore';
 import { api } from '#apis/index';
 
@@ -26,7 +26,7 @@ class PortfolioDetails extends React.Component<PortfolioDetailsProps> {
 
     const { id } = ctx.query;
 
-    const { data: responseData } = await getPortfolio(String(id));
+    const { data: responseData } = await getServerPortfolio(String(id));
 
     if (responseData) {
       props.portfolio = responseData;

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Token } from '#apis/auth';
+import * as process from "process";
 
 export const TOKEN_TYPE = 'Bearer';
 
@@ -9,6 +10,10 @@ export const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export const api = axios.create({
   baseURL,
+});
+
+export const serverApi = axios.create({
+  baseURL: process.env.API_HOST,
 });
 
 export function setToken(data?: Token | null): void {

@@ -1,7 +1,7 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { AxiosPaginatedRequestConfig, PaginatedDto } from '#apis/apis';
 import { IUser } from '#apis/users';
-import { api } from '#apis/index';
+import { api, serverApi } from '#apis/index';
 
 export interface IPortfolio {
   id: string;
@@ -93,6 +93,11 @@ export function createPortfolio(createPortfolioDto: CreatePortfolioDto): Promise
 export function getPortfolio(id: string, config?: AxiosRequestConfig): Promise<AxiosResponse<IPortfolio>> {
   const endpoint = `/api/portfolios/${id}`;
   return api.get(endpoint, config);
+}
+
+export function getServerPortfolio(id: string, config?: AxiosRequestConfig): Promise<AxiosResponse<IPortfolio>> {
+  const endpoint = `/api/portfolios/${id}`;
+  return serverApi.get(endpoint, config);
 }
 
 export function getPortfolios(config: AxiosPaginatedRequestConfig): Promise<AxiosResponse<PaginatedDto<IPortfolio>>> {
